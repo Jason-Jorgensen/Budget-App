@@ -1,9 +1,14 @@
 const mongoose = require ("mongoose");
-const Schema = mongoos.Schema;
+const Schema = mongoose.Schema;
 
 const CreditSchema = new Schema({
     name: String,
-    ammount: Number
+    ammount: Number,
+    interest: Number,
+    date: {
+        type:Date,
+        default: Date.now,
+    }
 });
 
 const Credit = mongoose.model("Credit", CreditSchema);
