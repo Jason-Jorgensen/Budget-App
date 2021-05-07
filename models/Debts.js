@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 const DebtsSchema = new Schema({
     name: String,
     ammount: Number,
+    date: {
+        type:Date,
+        default: Date.now,
+    }
     
 });
 
