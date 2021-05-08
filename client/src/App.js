@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing"
 import Forms from "./pages/Form"
 import Login from "./pages/Login"
+import "tailwindcss/tailwind.css"
 
 
 // The app will not render correctly until you setup a Route component.
