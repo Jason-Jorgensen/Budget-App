@@ -5,6 +5,7 @@ const CreditSchema = new Schema({
     name: String,
     ammount: Number,
     interest: Number,
+    minpayment: Number,
     date: {
         type:Date,
         default: Date.now,
