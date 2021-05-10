@@ -1,12 +1,15 @@
 import React from 'react'
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import Incomes from "../components/Income/Income"
+import Incomes from "../components/Income/Income";
+import Progressbar from "../components/Progressbar/Progressbar";
 
-export default function Form() {
+
+function Form() {
     return (
         <div>
             <Header />
+            <Progressbar />
             <Incomes />
             {/* <Debts />
             <Credits /> */}
@@ -14,3 +17,5 @@ export default function Form() {
         </div>
     )
 }
+
+export default Form
