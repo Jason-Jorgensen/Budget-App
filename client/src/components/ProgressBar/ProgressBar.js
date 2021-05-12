@@ -2,7 +2,7 @@ import React from 'react';
 import "./Progressbar.css"
 
 
-function Progressbar() {
+function ProgressBar() {
     return (
 <div className="max-w-xl mx-auto my-4 border-b-2 pb-4">	
 	<div className="flex pb-3">
@@ -82,4 +82,4 @@ function Progressbar() {
     )
 }
 
-export default Progressbar
+export default ProgressBar
