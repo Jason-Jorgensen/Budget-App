@@ -8,8 +8,14 @@ import formsContext from "../utils/formsContext";
 
 function Form() {
     const [income, setIncome] = useState({
-        salary:0,
-        description:"",
+        salary: 0,
+        bonus:0,
+        personalCont:0,
+        employerCont:0,
+        additionalIncome:0,
+        cash:0,
+        retirementBalance:0,
+        investorType:""
         
     });
     const incomeChange = (event) => {
