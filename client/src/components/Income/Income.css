@@ -1,0 +1,6 @@
+::placeholder {
+    font-size: small;
+}
+::selection {
+    font-size: 2px;
+}
