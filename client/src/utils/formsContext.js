@@ -1,10 +1,14 @@
 import React from "react";
 
 const FormsContext = React.createContext({
-  login: "",
-  language: "",
-  image: "",
-  handleBtnClick: () => {}
+  salary: 0,
+  description:"",
+//   onChange: () => {
+
+//   }
+
+
+
 });
 
 export default FormsContext;
