@@ -5,6 +5,7 @@ import Forms from "./pages/Form";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
 import Loading from "./pages/Loading";
+import PrivateRoute from "./components/routes/private-route"
 import "tailwindcss/tailwind.css";
 import { useAuth0 } from "@auth0/auth0-react";
 
@@ -31,9 +32,9 @@ function App() {
                     <Route exact path={"/forms"}>
                         <Forms/>
                     </Route>
-                    <Route exact path={"/profile"}>
+                    <PrivateRoute exact path={"/profile"}>
                         <Profile/>
-                    </Route>
+                    </PrivateRoute>
                 </Switch>
 
             </div>

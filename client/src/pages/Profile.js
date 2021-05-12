@@ -1,10 +1,11 @@
 import React from 'react'
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import { useAuth0 } from "@auth0/auth0-react";
+import Login from "../pages/Login"
+import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 
-export default function Profile() {
+const Profile = () => {
     const { user } = useAuth0();
     return (
         <div>
@@ -18,3 +19,8 @@ export default function Profile() {
         </div>
     )
 }
+
+export default withAuthenticationRequired(Profile, {
+    onRedirecting: () => <Login/>,
+    
+});
