@@ -4,11 +4,12 @@
   "private": true,
   "proxy": "http://localhost:3001/",
   "dependencies": {
+    "@auth0/auth0-react": "^1.5.0",
     "@craco/craco": "^5.8.0",
     "autoprefixer": "^9.8.6",
     "axios": "^0.18.0",
     "babel-jest": "^24.9.0",
-    "postcss": "^7.0.35",
+    "postcss": "^8.2.15",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router-dom": "^5.1.2",
