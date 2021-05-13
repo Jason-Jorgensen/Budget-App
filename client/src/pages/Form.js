@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Incomes from "../components/Income/Income";
-import Progressbar from "../components/ProgressBar/ProgressBar";
+import Progressbar from "../components/Progressbar/ProgressBar";
 import formsContext from "../utils/formsContext";
 import Login from "../pages/Login"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
