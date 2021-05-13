@@ -4,7 +4,7 @@ import './Income.css'
 
 
 
-function Income({incomeChange}) {
+function Income({incomeChange, incomeSubmit}) {
     const income = useContext(formsContext);
 
 
@@ -53,6 +53,9 @@ function Income({incomeChange}) {
       </select>
     </div>
   </form>
+  <button onClick={incomeSubmit}>
+
+  </button>
 </div>
 
     )

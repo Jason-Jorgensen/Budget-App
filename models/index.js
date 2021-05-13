@@ -1,6 +1,7 @@
 module.exports = {
   User: require("./User"),
-  Credit: require("./Credit"),
   Debts: require("./Debts"),
-  Income: require("./Income")
+  Income: require("./Income"),
+  Expenses: require("./Expenses"),
+  Investment: require("./Investments")
 };
