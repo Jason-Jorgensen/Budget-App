@@ -7,6 +7,8 @@ import formsContext from "../utils/formsContext";
 import Login from "../pages/Login"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
+import API from "../utils/API";
+
 
 function Form() {
     const { user } = useAuth0();
@@ -21,11 +23,17 @@ function Form() {
         investorType:""
         
     });
+    
     const incomeChange = (event) => {
         const {name, value} = event.target
         setIncome({...income,[name]:value})
     }
-
+    
+    const incomeSubmit = (e) => {
+        API.saveIncome(income)
+        .then(res =>
+           console.log("success"))
+    }
     // function updateIncome() => {
     //     setIncome({...income,salary,secondSalary})
     // }
@@ -36,7 +44,7 @@ function Form() {
             <formsContext.Provider value={income}>
             
             <Progressbar />
-            <Incomes incomeChange={incomeChange}/>
+            <Incomes incomeChange={incomeChange} incomeSubmite={incomeSubmit}/>
             {/* <Debts />
             <Credits /> */}
             
