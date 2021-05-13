@@ -3,9 +3,9 @@ import Login from "../pages/Login"
 import db from "../utils/API"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
-useEffect(() => {
+// useEffect(() => {
 
-},[]) 
+// },[]) 
 
 
 const Profile = () => {
