@@ -8,11 +8,11 @@ export default function Loading() {
     const { user } = useAuth0();
     return (
         <div>
-            <Header />
+           
 
             <h1>Loading.....</h1>
         
-            <Footer />
+            
 
         </div>
     )
