@@ -1,16 +1,19 @@
 import React from 'react'
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
+import { useAuth0 } from "@auth0/auth0-react";
 
-function Landing() {
+
+export default function Loading() {
+    const { user } = useAuth0();
     return (
         <div>
+           
+
+            <h1>Loading.....</h1>
+        
             
 
-            <h1>Landing</h1>
-           
         </div>
     )
 }
-
-export default Landing
