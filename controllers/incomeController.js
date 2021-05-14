@@ -3,18 +3,21 @@ const db = require("../models");
 // Defining methods for the booksController
 module.exports = {
     findAll: function (req, res) {
-        db.Incomes.find(req.query)
+        db.Incomes
+            .find(req.query)
             .sort({ date: -1 })
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     findById: function (req, res) {
-        db.Incomes.findById(req.params.id)
+        db.Incomes
+            .findById(req.params.id)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
     findOne: function (req, res) {
-        db.Incomes.findOne(req.params.email)
+        db.Incomes
+            .findOne(req.params.email)
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
@@ -31,7 +34,8 @@ module.exports = {
             .catch(err => res.status(422).json(err));
     },
     remove: function (req, res) {
-        db.Incomes.findById({ _id: req.params.id })
+        db.Incomes
+            .findById({ _id: req.params.id })
             .then(dbModel => dbModel.remove())
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
