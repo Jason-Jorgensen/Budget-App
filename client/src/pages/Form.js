@@ -2,7 +2,7 @@ import React, {useState} from 'react'
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Incomes from "../components/Income/Income";
-import Progressbar from "../components/Progressbar/ProgressBar";
+import Progressbar from "../components/ProgressBar/ProgressBar";
 import Expenses from "../components/Expenses/Expenses";
 import formsContext from "../utils/formsContext";
 import expensesContext from "../utils/expensesContext";
