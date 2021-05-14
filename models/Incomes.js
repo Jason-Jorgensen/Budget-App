@@ -1,7 +1,7 @@
 const mongoose = require ("mongoose");
 const Schema = mongoose.Schema;
 
-const IncomeSchema = new Schema({
+const IncomesSchema = new Schema({
     salary: Number,
     bonus: Number,
     personalCont: Number,
@@ -16,6 +16,6 @@ const IncomeSchema = new Schema({
     }
 });
 
-const Income = mongoose.model("Income", IncomeSchema);
+const Incomes = mongoose.model("Incomes", IncomesSchema);
 
-module.exports = Income;
+module.exports = Incomes;

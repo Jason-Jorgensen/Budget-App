@@ -3,24 +3,21 @@ const userController = require("../../controllers/userController");
 const incomeController = require("../../controllers/incomeController");
 const expensesController = require("../../controllers/expensesController");
 const debtsController = require("../../controllers/debtsController");
-// const userController = require("../../controllers/userController");
+// const incomeController = require("../../controllers/incomeController");
 
 
-// Matches with "/api/user"
+// Matches with "/api/income"
 router.route("/")
-  .get(userController.findAll)
-  .post(userController.create);
+  .get(incomeController.findAll)
+  .post(incomeController.create);
 
-// Matches with "/api/user/:id"
+// Matches with "/api/income/:id"
 router
   .route("/:id")
-  .get(userController.findById)
-  .put(userController.update)
-  .delete(userController.remove);
+  .get(incomeController.findById)
+  .put(incomeController.update)
+  .delete(incomeController.remove);
 
-// Matches with "/api/user/:email"
-router
-  .route("/:email")
-  .get(userController.findOne);
+
 
 module.exports = router;

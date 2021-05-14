@@ -12,14 +12,14 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import API from "../utils/API";
 
 let testItems = {
-    salary: 200,
-    bonus: 100,
-    personalCont: .3,
-    employerCont: .3,
-    additionalIncome: 120,
-    cash: 10000,
-    retirementBalance: 40000,
-    investorType: "agresive"
+    "salary": 200,
+    "bonus": 100,
+    "personalCont": 3,
+    "employerCont": 3,
+    "additionalIncome": 120,
+    "cash": 10000,
+    "retirementBalance": 40000,
+    "investorType": "agresive"
 }
 
 let testUser = {
@@ -52,10 +52,9 @@ function Form() {
 
     const incomeSubmit = (e) => {
         e.preventDefault();
-        API.saveIncome({testItems})
-        .then(res => 
-            
-            console.log(res)
+        console.log(testItems)
+        API.saveIncome(testItems)
+        .then(res => console.log(res)
         );
     }
     // function updateIncome() => {

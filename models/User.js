@@ -12,9 +12,9 @@ const userSchema = new Schema({
     {type: Schema.Types.ObjectId,
     ref: "Expenses"}
   ],
-  income: [
+  incomes: [
     {type: Schema.Types.ObjectId,
-    ref: "Income"}
+    ref: "Incomes"}
   ],
   debts: [
     {type: Schema.Types.ObjectId,
