@@ -13,4 +13,9 @@ router
   .put(userController.update)
   .delete(userController.remove);
 
+// Matches with "/api/user/:email"
+router
+  .route("/:email")
+  .get(userController.findOne)
+
 module.exports = router;
