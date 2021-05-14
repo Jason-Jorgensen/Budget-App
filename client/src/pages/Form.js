@@ -2,16 +2,20 @@ import React, {useState} from 'react'
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
 import Incomes from "../components/Income/Income";
-import Progressbar from "../components/ProgressBar/ProgressBar";
+import Progressbar from "../components/Progressbar/ProgressBar";
+import Expenses from "../components/Expenses/Expenses";
 import formsContext from "../utils/formsContext";
-import Login from "../pages/Login"
+import expensesContext from "../utils/expensesContext";
+import Login from "../pages/Login";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 import API from "../utils/API";
 
 
 function Form() {
+    
     const { user } = useAuth0();
+    console.log(user)
     const [income, setIncome] = useState({
         salary: 0,
         bonus:0,
@@ -21,7 +25,9 @@ function Form() {
         cash:0,
         retirementBalance:0,
         investorType:""
-        
+    });
+    const [expenses, setExpenses] = useState({
+
     });
     
     const incomeChange = (event) => {
@@ -30,9 +36,9 @@ function Form() {
     }
     
     const incomeSubmit = (e) => {
-        API.saveIncome(income)
-        .then(res =>
-           console.log("success"))
+        // API.saveIncome(income)
+        // .then(res =>
+           console.log("success")
     }
     // function updateIncome() => {
     //     setIncome({...income,salary,secondSalary})
@@ -44,9 +50,9 @@ function Form() {
             <formsContext.Provider value={income}>
             
             <Progressbar />
-            <Incomes incomeChange={incomeChange} incomeSubmite={incomeSubmit}/>
-            {/* <Debts />
-            <Credits /> */}
+            <Incomes incomeChange={incomeChange} incomeSubmit={incomeSubmit}/>
+            <Expenses />
+            {/* <Credits /> */}
             
             </formsContext.Provider>
         </div>
