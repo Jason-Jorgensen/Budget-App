@@ -1,11 +1,10 @@
-import React from "react";
+import React, {useState} from "react";
 
 import EditableLabel from 'react-editable-label';
 
 
 
 function Expenses() {
-    
 
     return (
         <div class="leading-loose">
@@ -19,7 +18,7 @@ function Expenses() {
 
                 <div class="mt-2 grid grid-cols-2">
                     <EditableLabel initialValue={'World'} save={value => { console.log(`Saving '${value}'`);}}/>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" name="salary" id="salary" type="number" required="" placeholder="Total Gross Income" />
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" name="" id="salary" type="number" required="" placeholder="Total Gross Income" />
                 </div>
 
                 <div class="mt-2 grid grid-cols-2">
@@ -28,8 +27,8 @@ function Expenses() {
                 </div>
 
             </form>
-            <button >
-
+            <button>
+                
             </button>
         </div>
 
