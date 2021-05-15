@@ -3,7 +3,7 @@ import Login from "../pages/Login"
 import db from "../utils/API"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import BudgetChart from "../components/BudgetChart/BudgetChart"
-import IncomeGraph from "../components/IncomeGraph/IncomeGraph"
+import IncomeGraph from "../components/InvestGraph/InvestGraph"
 
 // useEffect(() => {
 
@@ -35,8 +35,8 @@ const Profile = () => {
             </div>
             <div className="grid lg:grid-flow-col lg:grid-cols-2 gap-4 sm:text-center">
                 <BudgetChart />
-                <IncomeGraph />
             </div>
+                <InvestGraph />
 
         </div>
     )
