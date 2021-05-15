@@ -10,8 +10,10 @@ import IncomeGraph from "../components/IncomeGraph/IncomeGraph"
 // },[]) 
 
 
+
 const Profile = () => {
     const { user } = useAuth0();
+    
     return (
         <div>
             <div>{JSON.stringify(user, null, 2)}</div>
