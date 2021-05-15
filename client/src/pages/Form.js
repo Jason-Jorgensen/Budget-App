@@ -34,6 +34,11 @@ function Form() {
         const {name, value} = event.target
         setIncome({...income,[name]:value})
     }
+
+    const expenseChange = (event) => {
+        const {name, value} = event.target
+        setExpenses({...expenses,[name]:value})
+    }
     
     const incomeSubmit = (e) => {
         // API.saveIncome(income)
@@ -51,7 +56,7 @@ function Form() {
             
             <Progressbar />
             <Incomes incomeChange={incomeChange} incomeSubmit={incomeSubmit}/>
-            <Expenses />
+            <Expenses expenseChange={expenseChange} />
             {/* <Credits /> */}
             
             </formsContext.Provider>
