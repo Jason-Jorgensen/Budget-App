@@ -12,7 +12,7 @@ function Income({incomeChange, incomeSubmit}) {
         
 
     <div class="leading-loose">
-  <form class="max-w-xl mx-auto p-10 bg-white rounded shadow-xl">
+  <form class="max-w-xl mx-auto p-10 bg-white rounded shadow-xl text-center">
     <p class="text-gray-800 font-medium">Let's Take a Look at your Income!</p>
     <div class="mt-2">
       <label class="block text-sm text-gray-00" for="cus_name">Gross Income</label>

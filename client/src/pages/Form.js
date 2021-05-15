@@ -42,7 +42,7 @@ function Form() {
         investorType: ""
     });
     const [expenses, setExpenses] = useState({
-
+        
     });
 
     const incomeChange = (event) => {
