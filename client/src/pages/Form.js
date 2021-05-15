@@ -107,6 +107,10 @@ function Form() {
         .then(res => console.log(res)
         );
     }
+
+    const updateUser = (e) => {
+        
+    }
     
     // function updateIncome() => {
     //     setIncome({...income,salary,secondSalary})
