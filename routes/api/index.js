@@ -3,7 +3,7 @@ const userRoutes = require("./userrt");
 const incomeRoutes = require("./incomert");
 const expensesRoutes = require("./expensesrt");
 const debtsRoutes = require("./debtsrt")
-const { route } = require("./userrt");
+// const { route } = require("./userrt");
 
 // user routes
 router.use("/user", userRoutes);

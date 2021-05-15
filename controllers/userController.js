@@ -1,6 +1,6 @@
 const db = require("../models");
 
-// Defining methods for the booksController
+// Defining methods for the user Controller
 module.exports = {
   findAll: function (req, res) {
     db.User
@@ -16,8 +16,9 @@ module.exports = {
       .catch(err => res.status(422).json(err));
   },
   findOne: function (req, res) {
+    
     db.User
-      .findOne(req.params.email)
+      .findOne({email: req.params.email})
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
@@ -37,12 +38,6 @@ module.exports = {
     db.User
       .findById({ _id: req.params.id })
       .then(dbModel => dbModel.remove())
-      .then(dbModel => res.json(dbModel))
-      .catch(err => res.status(422).json(err));
-  },
-  create: function (req, res) {
-    db.Income
-      .create(req.body)
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
