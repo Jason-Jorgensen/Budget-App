@@ -4,7 +4,7 @@ import EditableLabel from 'react-editable-label';
 
 
 
-function Expenses({expenseChange}) {
+function Expenses({ expenseChange, expenseSubmit }) {
     const [labelNames, setLabelNames] = useState([])
     const updateLabel = (value, index) => {
         const tempArray = labelNames.slice();
@@ -26,19 +26,19 @@ function Expenses({expenseChange}) {
                 </div>
                 <div class="mt-2 grid grid-cols-2">
                     <label class="my-1 block text-md text-gray-00" for="cus_name">Health Insurance</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Health Insurance" id="rentOrMortgage" type="number" required="" />
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Health Insurance" id="Health Insurance" type="number" required="" />
                 </div>
                 <div class="mt-2 grid grid-cols-2">
                     <label class="my-1 block text-md text-gray-00" for="cus_name">Car Insurance</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Car Insurance" id="rentOrMortgage" type="number" required="" />
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Car Insurance" id="Car Insurance" type="number" required="" />
                 </div>
                 <div class="mt-2 grid grid-cols-2">
                     <label class="my-1 block text-md text-gray-00" for="cus_name">Car Maintenance</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Gifts" id="Gifts" type="number" required="" />
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Car Maintenance" id="Car Maintenance" type="number" required="" />
                 </div>
                 <div class="mt-2 grid grid-cols-2">
                     <label class="my-1 block text-md text-gray-00" for="cus_name">Gas Expense</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Gifts" id="Gifts" type="number" required="" />
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Gas Expense" id="Gas Expense" type="number" required="" />
                 </div>
                 <div class="mt-2 grid grid-cols-2">
                     <label class="my-1 block text-md text-gray-00" for="cus_name">Groceries</label>
@@ -88,7 +88,7 @@ function Expenses({expenseChange}) {
                     <label class="my-1 block text-md text-gray-00" for="cus_name">Self Care</label>
                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Self Care" id="Self Care" type="number" required="" />
                 </div>
-      
+
                 <div class="mt-2 grid grid-cols-2">
                     <label class="my-1 block text-md text-gray-00" for="cus_name">Dates</label>
                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Dates" id="Dates" type="number" required="" />
@@ -109,7 +109,7 @@ function Expenses({expenseChange}) {
                 </div>
 
                 <div class="mt-2 grid grid-cols-2">
-                    <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 0) }} /> 
+                    <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 0) }} />
                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name={labelNames[0]} id={labelNames[0]} type="number" required="" />
                 </div>
 
@@ -125,41 +125,44 @@ function Expenses({expenseChange}) {
 
             </form>
             <div class="leading-loose">
-            <form class="max-w-xl mx-auto p-10 bg-white rounded shadow-xl">
-                <p class="text-gray-800 font-medium">Memberships</p>
+                <form class="max-w-xl mx-auto p-10 bg-white rounded shadow-xl">
+                    <p class="text-gray-800 font-medium">Memberships</p>
 
-                <div class="mt-2 grid grid-cols-2">
-                    <label class="my-1 block text-md text-gray-00" for="cus_name">Gym</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="rentOrMortgage" id="rentOrMortgage" type="number" required="" />
-                </div>
-                <div class="mt-2 grid grid-cols-2">
-                    <label class="my-1 block text-md text-gray-00" for="cus_name">Video Streaming</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="rentOrMortgage" id="rentOrMortgage" type="number" required="" />
-                </div>
-                <div class="mt-2 grid grid-cols-2">
-                    <label class="my-1 block text-md text-gray-00" for="cus_name">Music</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="rentOrMortgage" id="rentOrMortgage" type="number" required="" />
-                </div>
-                <div class="mt-2 grid grid-cols-2">
-                    <label class="my-1 block text-md text-gray-00" for="cus_name">Costco, Amazon, Etc.</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="rentOrMortgage" id="rentOrMortgage" type="number" required="" />
-                </div>
-
-
-                <div class="mt-2 grid grid-cols-2">
-                    <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 3) }} placeholder="working" />
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name={labelNames[3]} id={labelNames[3]} type="number" required="" />
-                </div>
-
-                <div class="mt-2 grid grid-cols-2">
-                    <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 4) }} />
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" name={labelNames[4]} id={labelNames[4]} type="number" required="" />
-                </div>
+                    <div class="mt-2 grid grid-cols-2">
+                        <label class="my-1 block text-md text-gray-00" for="cus_name">Gym</label>
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Gym" id="Gym" type="number" required="" />
+                    </div>
+                    <div class="mt-2 grid grid-cols-2">
+                        <label class="my-1 block text-md text-gray-00" for="cus_name">Video Streaming</label>
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Video Streaming" id="Video Streaming" type="number" required="" />
+                    </div>
+                    <div class="mt-2 grid grid-cols-2">
+                        <label class="my-1 block text-md text-gray-00" for="cus_name">Music</label>
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Music" id="Music" type="number" required="" />
+                    </div>
+                    <div class="mt-2 grid grid-cols-2">
+                        <label class="my-1 block text-md text-gray-00" for="cus_name">Costco, Amazon, Etc.</label>
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Costco, Amazon, Etc." id="Costco, Amazon, Etc." type="number" required="" />
+                    </div>
 
 
-            </form>
+                    <div class="mt-2 grid grid-cols-2">
+                        <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 3) }} placeholder="working" />
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name={labelNames[3]} id={labelNames[3]} type="number" required="" />
+                    </div>
+
+                    <div class="mt-2 grid grid-cols-2">
+                        <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 4) }} />
+                        <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" name={labelNames[4]} id={labelNames[4]} type="number" required="" />
+                    </div>
+                </form>
+                <div class="flex justify-center mt-2">
+                    <button onClick={expenseSubmit} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
+                        Next Page
+                     </button>
+                </div>
             </div>
-     
+
         </div>
 
 

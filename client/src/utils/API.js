@@ -19,6 +19,9 @@ export default {
     saveIncome: function(incomeData) {
         return axios.post("api/income", incomeData);
     },
+    saveExpenses: function(incomeData) {
+        return axios.post("api/income", incomeData);
+    },
     saveDebts: function(debtsData) {
         return axios.post("/api/debts", debtsData);
     },
