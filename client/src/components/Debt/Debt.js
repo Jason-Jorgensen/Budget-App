@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Debt({debtChange, debtSubmit}) {
+function Debt({debtChange, debtSubmit, changeForm}) {
     const carArray = ["Car Loan Amount","Car Loan Rate %","Car Payment","Remaining Months on Car Loan"];
     const creditCardArray = ["Total Credit Balance", "Credit Card Int. Rate","Credit Card Payment"];
     const mortgageArray = ["Mortgage Balance","Mortgage P&I Payment","Remaining Years on Mortgage","Mortgage Rate %"];
@@ -47,7 +47,7 @@ function Debt({debtChange, debtSubmit}) {
             )}
         </form>
         <div class="flex justify-center mt-2">
-                    <button onClick={debtSubmit} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
+                    <button onClick={() => {debtSubmit();changeForm()}} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
                         Next Page
                      </button>
                 </div>

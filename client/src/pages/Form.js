@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
@@ -56,6 +56,12 @@ function Form() {
     
     });
 
+    const [formsSection, setFormsSection] = useState(
+        "incomes"
+        );
+    
+    const [progressCompleted, setProgressCompleted]=useState(0);
+
     const incomeChange = (event) => {
         const { name, value } = event.target
         setIncome({ ...income, [name]: value })
@@ -77,55 +83,103 @@ function Form() {
     }
     
     const incomeSubmit = (e) => {
-        e.preventDefault();
-        console.log(testItems)
-        API.saveIncome(testItems)
-        .then(res => console.log(res)
-        );
+        // // e.preventDefault();
+        // console.log(testItems)
+        // API.saveIncome(testItems)
+        // .then(res => console.log(res)
+        // );
     }
         
     const expenseSubmit = (e) => {
-        e.preventDefault();
-        console.log(testItems)
-        API.saveExenses(testItems)
-        .then(res => console.log(res)
-        );
+        // e.preventDefault();
+        // console.log(testItems)
+        // API.saveExenses(testItems)
+        // .then(res => console.log(res)
+        // );
     }
 
-    const debSubmit = (e) => {
-        e.preventDefault();
-        console.log(testItems)
-        API.saveDebts(testItems)
-        .then(res => console.log(res)
-        );
+    const debtSubmit = (e) => {
+        // e.preventDefault();
+        // console.log(testItems)
+        // API.saveDebts(testItems)
+        // .then(res => console.log(res)
+        // );
     }
 
     const investmentSubmit = (e) => {
-        e.preventDefault();
-        console.log(testItems)
-        API.saveInvestment(testItems)
-        .then(res => console.log(res)
-        );
+        // e.preventDefault();
+        // console.log(testItems)
+        // API.saveInvestment(testItems)
+        // .then(res => console.log(res)
+        // );
     }
+
+    const changeForm = () => {
+        switch (formsSection){
+            case "incomes": 
+            setFormsSection("expenses")
+            break;
+            case "expenses":
+            setFormsSection("debts")
+            break;
+            case "debts":
+            setFormsSection("investments")
+            break;
+            case "investements":
+            setFormsSection("incomes")
+            break;
+            default:
+            break;
+        }
+    }
+
+
+    useEffect(() => {
+        const updateProgress = () => {
+            if (formsSection == "expenses") {
+                setProgressCompleted(25)
+            }
+            else if (formsSection =="debts") {
+                setProgressCompleted(50)
+            }
+            else if (formsSection =="investments") {
+                setProgressCompleted(75)
+            }
+            else if (formsSection == "income") {
+                setProgressCompleted(0)
+            }
+        }
+        updateProgress();
+
+
+    }, [formsSection])
+
+
     
     // function updateIncome() => {
     //     setIncome({...income,salary,secondSalary})
     // }
+    
 
 
     return (
         <div>
             <formsContext.Provider value={income}>
-            <Progressbar />
-            <Switch>
-            <Route exact path={"/forms"}>
-            <Incomes incomeChange={incomeChange} incomeSubmit={incomeSubmit}/>
-            <Expenses expenseChange={expenseChange} expenseSubmit={expenseSubmit} />
-            <Debts debtChange={debtChange} debSubmit={debSubmit}/>
-            <Investments investmentChange={investmentChange} investmentSubmit={investmentSubmit}/>
-            </Route>
+            <Progressbar progressCompleted={progressCompleted} />
+           
+
+            {formsSection === "incomes" && <Incomes incomeChange={incomeChange} incomeSubmit={incomeSubmit} changeForm={changeForm}/>}
+           
+            {formsSection ==="expenses" && <Expenses expenseChange={expenseChange} expenseSubmit={expenseSubmit} changeForm={changeForm}/>}
+           
+           
+            {formsSection ==="debts" &&<Debts debtChange={debtChange} debtSubmit={debtSubmit} changeForm={changeForm}/>}
+            
+             
+            {formsSection === "investments" && <Investments investmentChange={investmentChange} investmentSubmit={investmentSubmit} changeForm={changeForm}/>}
+     
             {/* <Credits /> */}
-            </Switch>
+
             
                 <button onClick={incomeSubmit}>submit</button>
 

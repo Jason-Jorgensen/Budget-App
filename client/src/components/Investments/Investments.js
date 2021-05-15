@@ -1,7 +1,7 @@
 import React from 'react';
 import './Investment.css';
 
-function Investments({investmentChange, investmentSubmit}) {
+function Investments({investmentChange, investmentSubmit, changeForm}) {
     return (
         <div class="leading-loose">
         <form class="max-w-xl mx-auto p-10 bg-white rounded shadow-xl text-center">
@@ -30,7 +30,7 @@ function Investments({investmentChange, investmentSubmit}) {
 
         </form>
         <div class="flex justify-center mt-2">
-            <button onClick={investmentSubmit} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
+            <button onClick={() => {investmentSubmit();changeForm()}} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
                 Finish
              </button>
         </div>
