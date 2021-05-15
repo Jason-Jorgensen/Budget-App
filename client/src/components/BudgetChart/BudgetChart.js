@@ -19,7 +19,7 @@ export default class BudgetChart extends React.Component {
       }
       render() {
         return (
-          <div style={{ width: "100%", height: "100%" }}>
+          <div className="rounded shadow-xl" style={{ width: "100%", height: "100%" }}>
             <Plot
               data={this.state.data}
               layout={this.state.layout}
