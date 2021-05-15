@@ -4,7 +4,7 @@ import './Income.css'
 
 
 
-function Income({incomeChange, incomeSubmit}) {
+function Income({incomeChange, incomeSubmit, changeForm}) {
     const income = useContext(formsContext);
 
 
@@ -32,14 +32,11 @@ function Income({incomeChange, incomeSubmit}) {
       <label class="block text-sm text-gray-00" for="cus_name">Current Available Cash</label>
       <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"  onChange={incomeChange} name="cash" id="cash" type="number" required="" placeholder="Check your accounts for how much Cash is avialable"/>
     </div>
-    <div class="mt-2">
-      <label class="block text-sm text-gray-00" for="cus_name">Current Retirement Balance </label>
-      <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"  onChange={incomeChange} name="retirementBalance" id="retirementBalance" type="number" required="" placeholder="Total Retirement Account Balances" />
-    </div>
+  
 
   </form>
   <div class="flex justify-center mt-2">
-  <button onClick={incomeSubmit} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
+  <button onClick={() => {incomeSubmit();changeForm()} }class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
     Next Page
   </button>
 </div>
