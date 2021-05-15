@@ -4,7 +4,7 @@ import EditableLabel from 'react-editable-label';
 
 
 
-function Expenses({ expenseChange, expenseSubmit }) {
+function Expenses({ expenseChange, expenseSubmit, changeForm }) {
     const [labelNames, setLabelNames] = useState([])
     const updateLabel = (value, index) => {
         const tempArray = labelNames.slice();
@@ -125,7 +125,7 @@ function Expenses({ expenseChange, expenseSubmit }) {
 
             </form>
             <div class="leading-loose">
-                <form class="max-w-xl mx-auto p-10 bg-white rounded shadow-xl">
+                <form class="max-w-xl mx-auto p-10 bg-white rounded shadow-xl text-center">
                     <p class="text-gray-800 font-medium">Memberships</p>
 
                     <div class="mt-2 grid grid-cols-2">
@@ -157,7 +157,7 @@ function Expenses({ expenseChange, expenseSubmit }) {
                     </div>
                 </form>
                 <div class="flex justify-center mt-2">
-                    <button onClick={expenseSubmit} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
+                    <button onClick={() => {expenseSubmit();changeForm()}} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
                         Next Page
                      </button>
                 </div>
