@@ -1,0 +1,44 @@
+body {
+    
+}
+
+#hero {
+    background: black;
+    background-image: url("../assets/img/finance.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    z-index: -1;   
+    background-size: cover;
+    height: 700px;
+    width: 100%
+}
+
+#hero-box {
+color: whitesmoke;
+margin-top: 100px;
+padding: 40px 30px 20px;
+background: rgba(0,0,0, .6);
+height: 500px;
+position: absolute;
+}
+
+#title {
+    font-size: 80px;
+}
+
+.info {
+    color: white;
+    height: cover;
+}
+
+.info-box {
+    color: white;
+    width: 300px;
+    margin-top: 50px;
+    padding: 15px;
+}
+
+.info-img {
+    width: 200px;
+}
