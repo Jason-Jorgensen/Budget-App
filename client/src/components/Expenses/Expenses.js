@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import EditableLabel from 'react-editable-label';
 
@@ -11,6 +11,10 @@ function Expenses({ expenseChange, expenseSubmit, changeForm }) {
         tempArray[index] = value;
         setLabelNames(tempArray);
     }
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        
+    }, []);
     return (
         <div class="leading-loose">
             <form class="max-w-xl mx-auto p-10 bg-white rounded shadow-xl text-center">
@@ -49,8 +53,8 @@ function Expenses({ expenseChange, expenseSubmit, changeForm }) {
                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Home Goods" id="Home Goods" type="number" required="" />
                 </div>
                 <div class="mt-2 grid grid-cols-2">
-                    <label class="my-1 block text-md text-gray-00" for="cus_name">Hygene Products</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Hygene Products" id="Hygene Products" type="number" required="" />
+                    <label class="my-1 block text-md text-gray-00" for="cus_name">Hygiene Products</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Hygiene Products" id="Hygene Products" type="number" required="" />
                 </div>
                 <div class="mt-2 grid grid-cols-2">
                     <label class="my-1 block text-md text-gray-00" for="cus_name">Restaurants</label>
@@ -104,8 +108,8 @@ function Expenses({ expenseChange, expenseSubmit, changeForm }) {
                 </div>
 
                 <div class="mt-2 grid grid-cols-2">
-                    <label class="my-1 block text-md text-gray-00" for="cus_name">Miscelaneous</label>
-                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Miscelaneous" id="Miscelaneous" type="number" required="" />
+                    <label class="my-1 block text-md text-gray-00" for="cus_name">Miscellaneous</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Miscellaneous" id="Miscelaneous" type="number" required="" />
                 </div>
 
                 <div class="mt-2 grid grid-cols-2">
