@@ -63,7 +63,7 @@ export default class IncomeGraph extends React.Component {
     render() {
         return (
             <>
-     <div className="leading-loose">
+     {/* <div className="leading-loose">
         <form className="max-w-xl mx-auto p-10 bg-white rounded shadow-xl text-center">
             <p className="text-gray-800 font-medium">Investments</p>
     <div className="mt-2">
@@ -94,7 +94,7 @@ export default class IncomeGraph extends React.Component {
                 Submit
              </button>
         </div>
-    </div>
+    </div> */}
             <Plot
                 data={[
                     {
@@ -105,7 +105,7 @@ export default class IncomeGraph extends React.Component {
                         marker: { color: "red" },
                     }
                 ]}
-                layout={{ width: 500, height: 400, title: "Investment Graph" }}
+                layout={{ title: "Investment Graph" }}
             />
             </>
         );
