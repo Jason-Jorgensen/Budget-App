@@ -33,16 +33,9 @@ let testUser = {
 function Form() {
 
     const { user } = useAuth0();
-    console.log(user)
+    
     const [income, setIncome] = useState({
-        salary: 0,
-        bonus: 0,
-        personalCont: 0,
-        employerCont: 0,
-        additionalIncome: 0,
-        cash: 0,
-        retirementBalance: 0,
-        investorType: ""
+
     });
     const [expenses, setExpenses] = useState({
 
@@ -81,6 +74,7 @@ function Form() {
         const {name, value} = event.target
         setInvestments({...investments,[name]:value})
     }
+
     
     const incomeSubmit = (e) => {
 
@@ -163,7 +157,9 @@ function Form() {
 
     }, [formsSection])
 
-
+    const console = () => {
+        console.log(income,debts,expenses,investments)
+    };
     
     // function updateIncome() => {
     //     setIncome({...income,salary,secondSalary})
@@ -185,12 +181,12 @@ function Form() {
             {formsSection ==="debts" &&<Debts debtChange={debtChange} debtSubmit={debtSubmit} changeForm={changeForm}/>}
             
              
-            {formsSection === "investments" && <Investments investmentChange={investmentChange} investmentSubmit={investmentSubmit} changeForm={changeForm}/>}
+            {formsSection === "investments" && <Investments investmentChange={investmentChange} investmentSubmit={investmentSubmit} changeForm={changeForm} console={console}/>}
      
             {/* <Credits /> */}
 
             
-                <button onClick={incomeSubmit}>submit</button>
+            
 
             </formsContext.Provider>
         </div>
