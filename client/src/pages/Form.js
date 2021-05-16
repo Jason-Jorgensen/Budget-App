@@ -49,96 +49,99 @@ function Form() {
     });
 
     const [debts, setDebts] = useState({
-    
+
     });
 
     const [investments, setInvestments] = useState({
-    
+
     });
 
     const [formsSection, setFormsSection] = useState(
         "incomes"
-        );
-    
-    const [progressCompleted, setProgressCompleted]=useState(0);
+    );
 
-    const incomeChange = (event) => {
+    const [progressCompleted, setProgressCompleted] = useState(0);
+
+    const incomesChange = (event) => {
         const { name, value } = event.target
         setIncome({ ...income, [name]: value })
     }
 
-    const expenseChange = (event) => {
-        const {name, value} = event.target
-        setExpenses({...expenses,[name]:value})
+    const expensesChange = (event) => {
+        const { name, value } = event.target
+        setExpenses({ ...expenses, [name]: value })
     }
 
-    const debtChange = (event) => {
-        const {name, value} = event.target
-        setDebts({...debts,[name]:value})
+    const debtsChange = (event) => {
+        const { name, value } = event.target
+        setDebts({ ...debts, [name]: value })
     }
 
-    const investmentChange = (event) => {
-        const {name, value} = event.target
-        setInvestments({...investments,[name]:value})
+    const investmentsChange = (event) => {
+        const { name, value } = event.target
+        setInvestments({ ...investments, [name]: value })
     }
-    
-    const incomeSubmit = (e) => {
 
-    // Save user to DB
+    const incomesSubmit = (e) => {
+
+        // Save user to DB
         // e.preventDefault();
-        // console.log(testUser)
-        // API.saveUser(testUser)
+        // console.log(user)
+        // API.saveUser(user)
         // .then(res => console.log(res)
         // );
-        
-    // Save Income to DB
+
+        // Save Income to DB
         // e.preventDefault();
-        // console.log(testItems)
-        // API.saveIncome(testItems)
+        // console.log(income)
+        // API.saveIncomes(income)
         // .then(res => console.log(res)
         // );
-    }
-        
-    const expenseSubmit = (e) => {
-        // e.preventDefault();
-        // console.log(testItems)
-        // API.saveExenses(testItems)
-        // .then(res => console.log(res)
-        // );
+
+
     }
 
-    const debtSubmit = (e) => {
+    const expensesSubmit = (e) => {
+        // Save Income to DB
         // e.preventDefault();
-        // console.log(testItems)
-        // API.saveDebts(testItems)
+        // console.log(expenses)
+        // API.saveExpenses(expenses)
         // .then(res => console.log(res)
         // );
     }
 
-    const investmentSubmit = (e) => {
+    const debtsSubmit = (e) => {
         // e.preventDefault();
-        // console.log(testItems)
-        // API.saveInvestment(testItems)
+        // console.log(debt)
+        // API.saveDebts(debt)
+        // .then(res => console.log(res)
+        // );
+    }
+
+    const investmentsSubmit = (e) => {
+        // e.preventDefault();
+        // console.log(investment)
+        // API.saveInvestments(investment)
         // .then(res => console.log(res)
         // );
     }
 
     const changeForm = () => {
-        switch (formsSection){
-            case "incomes": 
-            setFormsSection("expenses")
-            break;
+        switch (formsSection) {
+            case "incomes":
+                setFormsSection("expenses")
+                break;
             case "expenses":
-            setFormsSection("debts")
-            break;
+                setFormsSection("debts")
+                break;
             case "debts":
-            setFormsSection("investments")
-            break;
+                setFormsSection("investments")
+                break;
             case "investements":
-            setFormsSection("incomes")
-            break;
+                setFormsSection("incomes")
+                break;
             default:
-            break;
+                break;
         }
     }
 
@@ -148,10 +151,10 @@ function Form() {
             if (formsSection == "expenses") {
                 setProgressCompleted(25)
             }
-            else if (formsSection =="debts") {
+            else if (formsSection == "debts") {
                 setProgressCompleted(50)
             }
-            else if (formsSection =="investments") {
+            else if (formsSection == "investments") {
                 setProgressCompleted(75)
             }
             else if (formsSection == "income") {
@@ -164,33 +167,33 @@ function Form() {
     }, [formsSection])
 
 
-    
+
     // function updateIncome() => {
     //     setIncome({...income,salary,secondSalary})
     // }
-    
+
 
 
     return (
         <div>
             <formsContext.Provider value={income}>
-            <Progressbar progressCompleted={progressCompleted} />
-           
+                <Progressbar progressCompleted={progressCompleted} />
 
-            {formsSection === "incomes" && <Incomes incomeChange={incomeChange} incomeSubmit={incomeSubmit} changeForm={changeForm}/>}
-           
-            {formsSection ==="expenses" && <Expenses expenseChange={expenseChange} expenseSubmit={expenseSubmit} changeForm={changeForm}/>}
-           
-           
-            {formsSection ==="debts" &&<Debts debtChange={debtChange} debtSubmit={debtSubmit} changeForm={changeForm}/>}
-            
-             
-            {formsSection === "investments" && <Investments investmentChange={investmentChange} investmentSubmit={investmentSubmit} changeForm={changeForm}/>}
-     
-            {/* <Credits /> */}
 
-            
-                <button onClick={incomeSubmit}>submit</button>
+                {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomeSubmit={incomesSubmit} changeForm={changeForm} />}
+
+                {formsSection === "expenses" && <Expenses expenseChange={expensesChange} expensesSubmit={expensesSubmit} changeForm={changeForm} />}
+
+
+                {formsSection === "debts" && <Debts debtChange={debtsChange} debtsSubmit={debtsSubmit} changeForm={changeForm} />}
+
+
+                {formsSection === "investments" && <Investments investmentsChange={investmentsChange} investmentsSubmit={investmentsSubmit} changeForm={changeForm} />}
+
+                {/* <Credits /> */}
+
+
+                <button onClick={incomesSubmit}>submit</button>
 
             </formsContext.Provider>
         </div>
