@@ -8,7 +8,7 @@ export default {
         return axios.get("/api/debts");
     },
     getInvestment: function () {
-        return axios.get("/api/credit");
+        return axios.get("/api/investment");
     },
     getUser: function(id) {
         return axios.get("api/user" + id);
@@ -16,17 +16,17 @@ export default {
     getUserbyEmail: function(email) {
         return axios.get("api/user", email)
     },
-    saveIncome: function(incomeData) {
+    saveIncomes: function(incomeData) {
         return axios.post("api/income", incomeData);
     },
-    saveExpenses: function(incomeData) {
-        return axios.post("api/income", incomeData);
+    saveExpenses: function(expensesData) {
+        return axios.post("api/income", expensesData);
     },
     saveDebts: function(debtsData) {
         return axios.post("/api/debts", debtsData);
     },
-    saveInvestment: function(creditData) {
-        return axios.post("/api/credit", creditData);
+    saveInvestments: function(investmentData) {
+        return axios.post("/api/credit", investmentData);
     },
     saveUser: function(userData) {
         return axios.post("/api/user", userData);
