@@ -7,7 +7,8 @@ const debtsController = require("../../controllers/debtsController");
 
 
 // Matches with "/api/user"
-router.route("/")
+router
+  .route("/")
   .get(userController.findAll)
   .post(userController.create);
 

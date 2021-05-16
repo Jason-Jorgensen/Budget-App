@@ -15,6 +15,7 @@ const saveUserInfo = () => {
 }
 
 const userCheck = (user) => {
+    console.log(user.email)
     API.getUserbyEmail(user?.email)
     .then(res => console.log(res));
 }
