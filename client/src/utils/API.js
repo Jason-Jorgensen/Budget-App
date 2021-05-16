@@ -14,7 +14,7 @@ export default {
         return axios.get("api/user" + id);
     },
     getUserbyEmail: function(email) {
-        return axios.get("api/user/" + email)
+        return axios.get("api/user", email)
     },
     saveIncome: function(incomeData) {
         return axios.post("api/income", incomeData);

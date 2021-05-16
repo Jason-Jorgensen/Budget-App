@@ -26,7 +26,7 @@ let testItems = {
 }
 
 let testUser = {
-    email: "test@test.com"
+    email: "test2@test.com"
 }
 
 
@@ -83,7 +83,16 @@ function Form() {
     }
     
     const incomeSubmit = (e) => {
-        // // e.preventDefault();
+
+    // Save user to DB
+        // e.preventDefault();
+        // console.log(testUser)
+        // API.saveUser(testUser)
+        // .then(res => console.log(res)
+        // );
+        
+    // Save Income to DB
+        // e.preventDefault();
         // console.log(testItems)
         // API.saveIncome(testItems)
         // .then(res => console.log(res)
