@@ -1,11 +1,15 @@
-import React from 'react'
+import React, {useEffect} from 'react'
 
 function Debt({debtChange, debtSubmit, changeForm}) {
     const carArray = ["Car Loan Amount","Car Loan Rate %","Car Payment","Remaining Months on Car Loan"];
     const creditCardArray = ["Total Credit Balance", "Credit Card Int. Rate","Credit Card Payment"];
     const mortgageArray = ["Mortgage Balance","Mortgage P&I Payment","Remaining Years on Mortgage","Mortgage Rate %"];
     const studentLoanArray = ["Student Loan Balance", "Student Loan Payment", "Student Loan Rate %"];
-    const otherLoanArray = ["Other Loan Balance", "Other Loan Rate %", "Other Loan Remaining Months","Other Loan Payment"]
+    const otherLoanArray = ["Other Loan Balance", "Other Loan Rate %", "Other Loan Remaining Months","Other Loan Payment"];
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        
+    }, []);
     return (
         <div class="leading-loose">
         <form class="max-w-xl mx-auto p-10 bg-white rounded shadow-xl text-center">
