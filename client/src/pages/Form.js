@@ -83,12 +83,15 @@ function Form() {
     }
     
     const incomeSubmit = (e) => {
-        e.preventDefault();
-        console.log(testUser)
-        API.saveUser(testUser)
-        .then(res => console.log(res)
-        );
+
+    // Save user to DB
+        // e.preventDefault();
+        // console.log(testUser)
+        // API.saveUser(testUser)
+        // .then(res => console.log(res)
+        // );
         
+    // Save Income to DB
         // e.preventDefault();
         // console.log(testItems)
         // API.saveIncome(testItems)
