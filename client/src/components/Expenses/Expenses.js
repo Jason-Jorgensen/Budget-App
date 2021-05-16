@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import EditableLabel from 'react-editable-label';
 
@@ -11,6 +11,10 @@ function Expenses({ expenseChange, expenseSubmit, changeForm }) {
         tempArray[index] = value;
         setLabelNames(tempArray);
     }
+    useEffect(() => {
+        window.scrollTo(0, 0)
+        
+    }, []);
     return (
         <div className="leading-loose">
             <form className="max-w-xl mx-auto p-10 bg-white rounded shadow-xl text-center">
