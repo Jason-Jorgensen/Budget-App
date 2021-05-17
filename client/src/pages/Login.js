@@ -13,6 +13,7 @@ import API from "../utils/API";
 
 export default function Login() {
     const { user } = useAuth0();
+    const [authUser, setAuthUser] = useState()
     const [savedUser, setSavedUser] = useState({
         "email": "none",
         "id": 0
@@ -29,16 +30,18 @@ export default function Login() {
 
     const userCheck = (user) => {
         console.log(user?.email)
-        API.getUserbyEmail(user?.email)
+        API.getUserbyEmail(user.email)
             .then(res => {
+                console.log(res.data)
                 setSavedUser({
                     ...savedUser,
                     "email": res.data.email,
                     "id": res.data._id
                 })
                 console.log(savedUser)
-            })
-        if (savedUser !== user?.email) {
+            }).catch(err => console.log(err));
+        if (savedUser.email !== user.email) {
+            console.log("saving user info to DB")
             saveUserDB()
             API.getUserbyEmail(user?.email)
                 .then(res => {
@@ -48,9 +51,10 @@ export default function Login() {
                         "id": res.data._id
                     })
                     console.log(savedUser)
-                })
+                }).catch(err => console.log(err));
 
         } else {
+            
 
         }
 

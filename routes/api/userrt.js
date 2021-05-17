@@ -22,6 +22,6 @@ router
 // Matches with "/api/user/:email"
 router
   .route("/:email")
-  .get(userController.findOne);
+  .get(userController.findEmail);
 
 module.exports = router;
