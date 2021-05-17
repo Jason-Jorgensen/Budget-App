@@ -182,7 +182,7 @@ function Form() {
                 <Progressbar progressCompleted={progressCompleted} />
 
 
-                {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomeSubmit={incomeSubmit} changeForm={changeForm} />}
+                {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomeSubmit={incomesSubmit} changeForm={changeForm} />}
 
                 {formsSection === "expenses" && <Expenses expensesChange={expensesChange} expensesSubmit={expensesSubmit} changeForm={changeForm} />}
 
