@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-import React, { useEffect, useState } from 'react'
-=======
 import React, { useState, useEffect } from 'react'
->>>>>>> c72109f4e2eca39d8f210917a4fce725895588fe
 import Login from "../pages/Login"
 import API from "../utils/API"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";

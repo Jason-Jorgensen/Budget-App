@@ -31,7 +31,7 @@ export default function Login() {
     return (
         <body>
             <div id="hero">
-                <div className="container-fluid">
+                <div className="">
                     <Zoom>
                         <div className="row">
                             <div id="hero-box" className="col-md-6 offset-md-3">

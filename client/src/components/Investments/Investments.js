@@ -3,7 +3,7 @@ import './Investment.css';
 
 
 
-function Investments({investmentsChange, investmentsSubmit, changeForm, console}) {
+function Investments({investmentsChange, investmentsSubmit, changeForm, check}) {
   useEffect(() => {
     window.scrollTo(0, 0)
     
@@ -36,7 +36,7 @@ function Investments({investmentsChange, investmentsSubmit, changeForm, console}
 
         </form>
         <div class="flex justify-center mt-2">
-            <button onClick={() => {investmentsSubmit();changeForm();console()}} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
+            <button onClick={() => {investmentsSubmit();changeForm();check()}} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
                 Finish
              </button>
         </div>

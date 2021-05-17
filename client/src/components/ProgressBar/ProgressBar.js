@@ -33,7 +33,7 @@ const ProgressBar = (progressCompleted) => {
 	}
   
 	return (
-	<div className=" container">
+	<div className=" container max-w-xl">
 	  <div style={containerStyles}>
 		<div style={fillerStyles}>
 		  <span style={labelStyles}>{`${progressCompleted.progressCompleted}%`}</span>
