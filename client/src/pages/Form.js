@@ -33,16 +33,9 @@ let testUser = {
 function Form() {
 
     const { user } = useAuth0();
-    console.log(user)
+    
     const [income, setIncome] = useState({
-        salary: 0,
-        bonus: 0,
-        personalCont: 0,
-        employerCont: 0,
-        additionalIncome: 0,
-        cash: 0,
-        retirementBalance: 0,
-        investorType: ""
+
     });
     const [expenses, setExpenses] = useState({
 
@@ -82,7 +75,9 @@ function Form() {
         setInvestments({ ...investments, [name]: value })
     }
 
-    const incomesSubmit = (e) => {
+
+    
+    const incomeSubmit = (e) => {
 
         // Save user to DB
         // e.preventDefault();
@@ -167,6 +162,9 @@ function Form() {
     }, [formsSection])
 
 
+    const console = () => {
+        console.log(income,debts,expenses,investments)
+    };
 
     // function updateIncome() => {
     //     setIncome({...income,salary,secondSalary})
@@ -177,6 +175,7 @@ function Form() {
     return (
         <div>
             <formsContext.Provider value={income}>
+
                 <Progressbar progressCompleted={progressCompleted} />
 
 
@@ -192,8 +191,9 @@ function Form() {
 
                 {/* <Credits /> */}
 
-
                 <button onClick={incomesSubmit}>submit</button>
+
+
 
             </formsContext.Provider>
         </div>
