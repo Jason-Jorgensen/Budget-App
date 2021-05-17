@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer';
 import Zoom from 'react-reveal/Zoom'
@@ -10,24 +10,56 @@ import API from "../utils/API";
 
 
 
-const saveUserInfo = () => {
-    
-}
-
-const userCheck = (user) => {
-    console.log(user.email)
-    API.getUserbyEmail(user?.email)
-    .then(res => console.log(res));
-}
-
 
 export default function Login() {
     const { user } = useAuth0();
+    const [savedUser, setSavedUser] = useState({
+        "email": "none",
+        "id": 0
+    })
+
+    const saveUserDB = () => {
+        //Save user to DB
+        // console.log(user)
+        API.saveUser(user)
+            .then(res => console.log(res.data)
+            );
+    }
+
+
+    const userCheck = (user) => {
+        console.log(user?.email)
+        API.getUserbyEmail(user?.email)
+            .then(res => {
+                setSavedUser({
+                    ...savedUser,
+                    "email": res.data.email,
+                    "id": res.data._id
+                })
+                console.log(savedUser)
+            })
+        if (savedUser !== user?.email) {
+            saveUserDB()
+            API.getUserbyEmail(user?.email)
+                .then(res => {
+                    setSavedUser({
+                        ...savedUser,
+                        "email": res.data.email,
+                        "id": res.data._id
+                    })
+                    console.log(savedUser)
+                })
+
+        } else {
+
+        }
+
+    }
 
 
     useEffect(() => {
         userCheck(user)
-    });
+    }, []);
 
     return (
         <body>
