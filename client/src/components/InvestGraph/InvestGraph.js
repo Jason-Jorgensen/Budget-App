@@ -1,5 +1,6 @@
 import React from "react";
 import Plot from "react-plotly.js";
+import Chart from "react-google-charts";
 
 export default class IncomeGraph extends React.Component {
     state = {
@@ -63,7 +64,7 @@ export default class IncomeGraph extends React.Component {
     render() {
         return (
             <>
-     <div className="leading-loose">
+     {/* <div className="leading-loose">
         <form className="max-w-xl mx-auto p-10 bg-white rounded shadow-xl text-center">
             <p className="text-gray-800 font-medium">Investments</p>
     <div className="mt-2">
@@ -94,8 +95,8 @@ export default class IncomeGraph extends React.Component {
                 Submit
              </button>
         </div>
-    </div>
-            <Plot
+    </div> */}
+            {/* <Plot
                 data={[
                     {
                         x: this.state.year,
@@ -105,9 +106,37 @@ export default class IncomeGraph extends React.Component {
                         marker: { color: "red" },
                     }
                 ]}
-                layout={{ width: 500, height: 400, title: "Investment Graph" }}
-            />
-            </>
+                layout={{ width: 300, height: 400, title: "Investment Graph" }}
+            />*/}
+            <Chart
+  chartType="LineChart"
+  loader={<div>Loading Chart</div>}
+  data={[
+    ['x', 'dogs', 'cats'],
+    [0, 0, 0],
+    [1, 10, 5],
+    [2, 23, 15],
+    [3, 17, 9],
+    [4, 18, 10],
+    [5, 9, 5],
+    [6, 11, 3],
+    [7, 27, 19],
+  ]}
+  options={{
+    hAxis: {
+      title: 'Time',
+    },
+    vAxis: {
+      title: 'Popularity',
+    },
+    series: {
+      1: { curveType: 'function' },
+    },
+  }}
+  rootProps={{ 'data-testid': '2' }}
+/>
+            </> 
+            
         );
     }
 }

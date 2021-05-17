@@ -179,7 +179,7 @@ function Form() {
                 <Progressbar progressCompleted={progressCompleted} />
 
 
-                {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomeSubmit={incomesSubmit} changeForm={changeForm} />}
+                {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomeSubmit={incomeSubmit} changeForm={changeForm} />}
 
                 {formsSection === "expenses" && <Expenses expenseChange={expensesChange} expensesSubmit={expensesSubmit} changeForm={changeForm} />}
 
@@ -191,7 +191,11 @@ function Form() {
 
                 {/* <Credits /> */}
 
+<<<<<<< HEAD
          
+=======
+                <button onClick={incomeSubmit}>submit</button>
+>>>>>>> c72109f4e2eca39d8f210917a4fce725895588fe
 
 
 
