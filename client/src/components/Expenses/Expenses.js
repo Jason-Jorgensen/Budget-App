@@ -52,9 +52,9 @@ function Expenses({ expenseChange, expenseSubmit, changeForm }) {
                     <label className="my-1 block text-md text-gray-00" for="cus_name">Home Goods</label>
                     <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Home Goods" id="Home Goods" type="number" required="" />
                 </div>
-                <div className="mt-2 grid grid-cols-2">
-                    <label className="my-1 block text-md text-gray-00" for="cus_name">Hygene Products</label>
-                    <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Hygene Products" id="Hygene Products" type="number" required="" />
+                <div class="mt-2 grid grid-cols-2">
+                    <label class="my-1 block text-md text-gray-00" for="cus_name">Hygiene Products</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Hygiene Products" id="Hygene Products" type="number" required="" />
                 </div>
                 <div className="mt-2 grid grid-cols-2">
                     <label className="my-1 block text-md text-gray-00" for="cus_name">Restaurants</label>
@@ -107,9 +107,9 @@ function Expenses({ expenseChange, expenseSubmit, changeForm }) {
                     <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Charity" id="Charity" type="number" required="" />
                 </div>
 
-                <div className="mt-2 grid grid-cols-2">
-                    <label className="my-1 block text-md text-gray-00" for="cus_name">Miscelaneous</label>
-                    <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Miscelaneous" id="Miscelaneous" type="number" required="" />
+                <div class="mt-2 grid grid-cols-2">
+                    <label class="my-1 block text-md text-gray-00" for="cus_name">Miscellaneous</label>
+                    <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expenseChange} name="Miscellaneous" id="Miscelaneous" type="number" required="" />
                 </div>
 
                 <div className="mt-2 grid grid-cols-2">
