@@ -6,8 +6,7 @@ import Fade from 'react-reveal/Fade'
 import './Login.css';
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import API from "../utils/API";
-
-
+import AuthenticationButton from '../components/Header/authentication-button';
 
 
 
@@ -68,14 +67,13 @@ export default function Login() {
     return (
         <body>
             <div id="hero">
-                <div className="container-fluid">
+                <div className="">
                     <Zoom>
                         <div className="row">
                             <div id="hero-box" className="col-md-6 offset-md-3">
                                 <h2 id="title" className="text-center">"Budget App"</h2>
                                 <p className="m-8">Welcome to "Budget App"! A budget calculator designed to help you set financial goals for long term savings and investment.</p>
-                                <button type="submit" className="btn bg-gray-500 hover:bg-gray-700 mb-2">Log In</button>
-                                <p>Or sign up <a href="/">here</a></p>
+                                <AuthenticationButton />
                             </div>
                         </div>
                     </Zoom>
