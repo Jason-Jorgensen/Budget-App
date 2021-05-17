@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Login from "../pages/Login"
-import db from "../utils/API"
+import API from "../utils/API"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import BudgetChart from "../components/BudgetChart/BudgetChart"
 import InvestGraph from "../components/InvestGraph/InvestGraph"
@@ -9,6 +9,18 @@ import Chart from "react-google-charts";
 
 const Profile = () => {
     const { user } = useAuth0();
+    
+    useEffect(() => {
+        loadUserData()
+    }, [])
+
+
+    function loadUserData() {
+        API.getUserbyEmail(user.email)
+            .then(res =>
+                console.log(res.data)
+            )
+    };
 
 
     const userInfo = () => {

@@ -77,7 +77,7 @@ function Form() {
 
 
     
-    const incomeSubmit = (e) => {
+    const incomesSubmit = (e) => {
 
         // Save user to DB
         // e.preventDefault();
@@ -162,8 +162,11 @@ function Form() {
     }, [formsSection])
 
 
-    const console = () => {
-        console.log(income,debts,expenses,investments)
+    const check = () => {
+        console.log(income)
+        console.log(expenses)
+        console.log(debts)
+        console.log(investments)
     };
 
     // function updateIncome() => {
@@ -179,19 +182,19 @@ function Form() {
                 <Progressbar progressCompleted={progressCompleted} />
 
 
-                {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomeSubmit={incomeSubmit} changeForm={changeForm} />}
+                {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomesSubmit={incomesSubmit} changeForm={changeForm} />}
 
-                {formsSection === "expenses" && <Expenses expenseChange={expensesChange} expensesSubmit={expensesSubmit} changeForm={changeForm} />}
-
-
-                {formsSection === "debts" && <Debts debtChange={debtsChange} debtsSubmit={debtsSubmit} changeForm={changeForm} />}
+                {formsSection === "expenses" && <Expenses expensesChange={expensesChange} expensesSubmit={expensesSubmit} changeForm={changeForm} />}
 
 
-                {formsSection === "investments" && <Investments investmentsChange={investmentsChange} investmentsSubmit={investmentsSubmit} changeForm={changeForm} />}
+                {formsSection === "debts" && <Debts debtsChange={debtsChange} debtsSubmit={debtsSubmit} changeForm={changeForm} />}
+
+
+                {formsSection === "investments" && <Investments investmentsChange={investmentsChange} investmentsSubmit={investmentsSubmit} changeForm={changeForm} check={check} />}
 
                 {/* <Credits /> */}
 
-                <button onClick={incomeSubmit}>submit</button>
+
 
 
 
