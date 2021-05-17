@@ -77,7 +77,7 @@ function Form() {
 
 
     
-    const incomeSubmit = (e) => {
+    const incomesSubmit = (e) => {
 
         // Save user to DB
         // e.preventDefault();
@@ -191,7 +191,7 @@ function Form() {
 
                 {/* <Credits /> */}
 
-                <button onClick={incomesSubmit}>submit</button>
+         
 
 
 
