@@ -54,8 +54,8 @@ function Income({incomeChange, incomeSubmit, changeForm}) {
     </div>
 
   </form>
-  <div class="flex justify-center mt-2">
-  <button onClick={() => {incomeSubmit();changeForm()} }class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
+  <div className="flex justify-center mt-2">
+  <button onClick={() => {incomeSubmit();changeForm()} }className="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
     Next Page
   </button>
 </div>
