@@ -24,9 +24,9 @@ export default function Login() {
     const { user } = useAuth0();
 
 
-    useEffect(() => {
-        userCheck(user)
-    });
+    // useEffect(() => {
+    //     userCheck(user)
+    // });
 
     return (
         <body>

@@ -1,5 +1,6 @@
 import React from "react";
 import Plot from "react-plotly.js";
+import Chart from "react-google-charts";
 
 export default class IncomeGraph extends React.Component {
     state = {
@@ -95,7 +96,7 @@ export default class IncomeGraph extends React.Component {
              </button>
         </div>
     </div> */}
-            <Plot
+            {/* <Plot
                 data={[
                     {
                         x: this.state.year,
@@ -105,9 +106,37 @@ export default class IncomeGraph extends React.Component {
                         marker: { color: "red" },
                     }
                 ]}
-                layout={{ title: "Investment Graph" }}
-            />
-            </>
+                layout={{ width: 300, height: 400, title: "Investment Graph" }}
+            />*/}
+            <Chart
+  chartType="LineChart"
+  loader={<div>Loading Chart</div>}
+  data={[
+    ['x', 'dogs', 'cats'],
+    [0, 0, 0],
+    [1, 10, 5],
+    [2, 23, 15],
+    [3, 17, 9],
+    [4, 18, 10],
+    [5, 9, 5],
+    [6, 11, 3],
+    [7, 27, 19],
+  ]}
+  options={{
+    hAxis: {
+      title: 'Time',
+    },
+    vAxis: {
+      title: 'Popularity',
+    },
+    series: {
+      1: { curveType: 'function' },
+    },
+  }}
+  rootProps={{ 'data-testid': '2' }}
+/>
+            </> 
+            
         );
     }
 }

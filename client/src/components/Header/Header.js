@@ -1,6 +1,7 @@
 import React from 'react';
 import Auth0ProviderWithHistory from '../../auth0-provider-with-history';
 import AuthenticationButton from './authentication-button';
+import UserIcon from '../UserIcon/UserIcon'
 
 function Header() {
     return (
@@ -18,8 +19,12 @@ function Header() {
                 <a className="no-underline text-grey-dark border-b-2 border-transparent uppercase tracking-wide font-bold text-xs py-3" href="#">
                     Customers
          </a>
+<div className="absolte right-2">
 
-                <div className="absolute right-0"><AuthenticationButton /></div>
+</div>
+                <div className="absolute right-0">
+                    <UserIcon />
+                    </div>
 
             </div>
         </nav>
