@@ -12,10 +12,10 @@ import AuthenticationButton from '../components/Header/authentication-button';
 
 export default function Login() {
     const { user } = useAuth0();
-    const [authUser, setAuthUser] = useState()
+    // const [authUser, setAuthUser] = useState()
     const [savedUser, setSavedUser] = useState({
-        "email": "none",
-        "id": 0
+        email: "none",
+        id: 0
     })
 
     const saveUserDB = () => {
@@ -28,34 +28,54 @@ export default function Login() {
 
 
     const userCheck = (user) => {
-        console.log(user?.email)
+        console.log(user.email)
+
+        let emailCheck = ""
+        let idCheck = ""
         API.getUserbyEmail(user.email)
             .then(res => {
-                console.log(res.data)
-                setSavedUser({
-                    ...savedUser,
-                    "email": res.data.email,
-                    "id": res.data._id
-                })
-                console.log(savedUser)
-            }).catch(err => console.log(err));
-        if (savedUser.email !== user.email) {
-            console.log("saving user info to DB")
-            saveUserDB()
-            API.getUserbyEmail(user?.email)
-                .then(res => {
-                    setSavedUser({
-                        ...savedUser,
-                        "email": res.data.email,
-                        "id": res.data._id
-                    })
-                    console.log(savedUser)
-                }).catch(err => console.log(err));
+                console.log(res.data.length)
+                if (res.data.length === 0) {
+                    console.log("saving user info to DB")
+                    saveUserDB(user.email)
+                    API.getUserbyEmail(user.email)
+                        .then(res => {
+                            setSavedUser({
+                                ...savedUser,
+                                email: res.data[0].email,
+                                id: res.data[0]._id
+                            })
+                            console.log(savedUser)
+                        }).catch(err => console.log(err));
 
-        } else {
-            
-
-        }
+                } else {
+                    emailCheck = res.data[0].email
+                    idCheck = res.data[0]._id
+                    console.log(emailCheck, user.email)
+                    if (emailCheck !== user.email) {
+                        console.log("saving user info to DB")
+                        saveUserDB(user.email)
+                        API.getUserbyEmail(user.email)
+                            .then(res => {
+                                setSavedUser({
+                                    ...savedUser,
+                                    email: res.data[0].email,
+                                    id: res.data[0]._id
+                                })
+                                console.log(savedUser)
+                            }).catch(err => console.log(err));
+                    } else {
+                        console.log("emails match   " + emailCheck)
+                        setSavedUser({
+                            ...savedUser,
+                            email: res.data[0].email,
+                            id: res.data[0]._id
+                        }
+                        )
+                    }
+                }
+            }
+            ).catch(err => console.log(err));
 
     }
 
