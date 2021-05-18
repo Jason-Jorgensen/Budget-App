@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react'
+import React, { useEffect, useState } from 'react'
 import Header from '../components/Header/Header'
 import Footer from '../components/Footer/Footer';
 import Zoom from 'react-reveal/Zoom'
@@ -9,6 +9,7 @@ import API from "../utils/API";
 import AuthenticationButton from '../components/Header/authentication-button';
 
 
+<<<<<<< HEAD
 const saveUserInfo = () => {
 
 }
@@ -19,14 +20,82 @@ const userCheck = (user) => {
         .then(res => console.log(res));
 }
 
+=======
+>>>>>>> 299d8b85ed04f9122fa707d0050d5f74510d0535
 
 export default function Login() {
     const { user } = useAuth0();
+    // const [authUser, setAuthUser] = useState()
+    const [savedUser, setSavedUser] = useState({
+        email: "none",
+        id: 0
+    })
+
+    const saveUserDB = () => {
+        //Save user to DB
+        // console.log(user)
+        API.saveUser(user)
+            .then(res => console.log(res.data)
+            );
+    }
 
 
-    // useEffect(() => {
-    //     userCheck(user)
-    // });
+    const userCheck = (user) => {
+        console.log(user.email)
+
+        let emailCheck = ""
+        let idCheck = ""
+        API.getUserbyEmail(user.email)
+            .then(res => {
+                console.log(res.data.length)
+                if (res.data.length === 0) {
+                    console.log("saving user info to DB")
+                    saveUserDB(user.email)
+                    API.getUserbyEmail(user.email)
+                        .then(res => {
+                            setSavedUser({
+                                ...savedUser,
+                                email: res.data[0].email,
+                                id: res.data[0]._id
+                            })
+                            console.log(savedUser)
+                        }).catch(err => console.log(err));
+
+                } else {
+                    emailCheck = res.data[0].email
+                    idCheck = res.data[0]._id
+                    console.log(emailCheck, user.email)
+                    if (emailCheck !== user.email) {
+                        console.log("saving user info to DB")
+                        saveUserDB(user.email)
+                        API.getUserbyEmail(user.email)
+                            .then(res => {
+                                setSavedUser({
+                                    ...savedUser,
+                                    email: res.data[0].email,
+                                    id: res.data[0]._id
+                                })
+                                console.log(savedUser)
+                            }).catch(err => console.log(err));
+                    } else {
+                        console.log("emails match   " + emailCheck)
+                        setSavedUser({
+                            ...savedUser,
+                            email: res.data[0].email,
+                            id: res.data[0]._id
+                        }
+                        )
+                    }
+                }
+            }
+            ).catch(err => console.log(err));
+
+    }
+
+
+    useEffect(() => {
+        userCheck(user)
+    }, []);
 
     return (
         <body>
