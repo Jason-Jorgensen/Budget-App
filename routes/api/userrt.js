@@ -13,15 +13,15 @@ router
   .post(userController.create);
 
 // Matches with "/api/user/:id"
-router
-  .route("/:id")
-  .get(userController.findById)
-  .put(userController.update)
-  .delete(userController.remove);
+// router
+//   .route("/:id")
+//   .get(userController.findById)
+//   .put(userController.update)
+//   .delete(userController.remove);
 
 // Matches with "/api/user/:email"
 router
   .route("/:email")
-  .get(userController.findOne);
+  .get(userController.findEmail);
 
 module.exports = router;
