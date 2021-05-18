@@ -10,13 +10,13 @@ import AuthenticationButton from '../components/Header/authentication-button';
 
 
 const saveUserInfo = () => {
-    
+
 }
 
 const userCheck = (user) => {
     console.log(user.email)
     API.getUserbyEmail(user?.email)
-    .then(res => console.log(res));
+        .then(res => console.log(res));
 }
 
 
@@ -30,8 +30,8 @@ export default function Login() {
 
     return (
         <body>
-            <div id="hero">
-                <div className="">
+            <div id="hero" className="">
+                <div className="container-fluid max-w-3xl mt-auto ">
                     <Zoom>
                         <div className="row">
                             <div id="hero-box" className="col-md-6 offset-md-3">
@@ -42,18 +42,21 @@ export default function Login() {
                         </div>
                     </Zoom>
                 </div>
+   
             </div>
-            <div className="info grid justify-items-center bg-gray-700">
-                <Fade left>
-                    <div className="info-box">Personalized Budget suggestions allow you to adjust your plan to your needs. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod excepturi provident explicabo officia reprehenderit sunt, natus nisi laborum animi, nam ratione nulla iure ab adipisci reiciendis quo optio mollitia error!</div>
-                </Fade>
-                <Fade right>
-                    <div className="info-box">Reactive charts that allow you to quickly obtain budget infomation. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod excepturi provident explicabo officia reprehenderit sunt, natus nisi laborum animi, nam ratione nulla iure ab adipisci reiciendis quo optio mollitia error!</div>
-                    <img className="info-img" src="./portfolio.png" />
-                </Fade>
-                <Fade left>
-                    <div className="info-box">Retirement calculator allows you to set investment milestones. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod excepturi provident explicabo officia reprehenderit sunt, natus nisi laborum animi, nam ratione nulla iure ab adipisci reiciendis quo optio mollitia error!</div>
-                </Fade>
+            <div className="info grid justify-items-center bg-white  " >
+                <div className="max-w-lg container">
+                    <Fade left>
+                        <div className="info-box">Personalized Budget suggestions allow you to adjust your plan to your needs. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod excepturi provident explicabo officia reprehenderit sunt, natus nisi laborum animi, nam ratione nulla iure ab adipisci reiciendis quo optio mollitia error!</div>
+                    </Fade>
+                    <Fade right>
+                        <div className="info-box">Reactive charts that allow you to quickly obtain budget infomation. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod excepturi provident explicabo officia reprehenderit sunt, natus nisi laborum animi, nam ratione nulla iure ab adipisci reiciendis quo optio mollitia error!</div>
+                        <img className="info-img" src="./portfolio.png" />
+                    </Fade>
+                    <Fade left>
+                        <div className="info-box">Retirement calculator allows you to set investment milestones. Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quod excepturi provident explicabo officia reprehenderit sunt, natus nisi laborum animi, nam ratione nulla iure ab adipisci reiciendis quo optio mollitia error!</div>
+                    </Fade>
+                </div>
             </div>
         </body>
     )
