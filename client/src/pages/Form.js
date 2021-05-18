@@ -28,12 +28,24 @@ let testItems = {
 let testUser = {
     email: "test2@test.com"
 }
+// function () {
+//     API.getUserbyEmail(user.email)
+//         .then(res => {
+//             setSavedUser({
+//                 ...savedUser,
+//                 email: res.data[0].email,
+//                 id: res.data[0]._id
+//             })
+//             console.log(savedUser)
+//         }).catch(err => console.log(err));
+
+// }
 
 
-function Form() {
+function Form({savedUser}) {
 
     const { user } = useAuth0();
-    
+
     const [income, setIncome] = useState({
 
     });
@@ -75,23 +87,28 @@ function Form() {
         setInvestments({ ...investments, [name]: value })
     }
 
+    // Save user to DB
+    // e.preventDefault();
+    // console.log(user)
+    // API.saveUser(user)
+    // .then(res => console.log(res)
+    // );
 
-    
+
     const incomesSubmit = (e) => {
-
-        // Save user to DB
-        // e.preventDefault();
-        // console.log(user)
-        // API.saveUser(user)
-        // .then(res => console.log(res)
-        // );
-
         // Save Income to DB
         // e.preventDefault();
-        // console.log(income)
+        console.log(income)
+        console.log(savedUser.id)
         // API.saveIncomes(income)
-        // .then(res => console.log(res)
-        // );
+        //     .then(res => {
+        //         console.log(res)
+
+
+
+        //     });
+
+
 
 
     }
@@ -182,7 +199,7 @@ function Form() {
                 <Progressbar progressCompleted={progressCompleted} />
 
 
-                {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomeSubmit={incomesSubmit} changeForm={changeForm} />}
+                {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomesSubmit={incomesSubmit} changeForm={changeForm} />}
 
                 {formsSection === "expenses" && <Expenses expensesChange={expensesChange} expensesSubmit={expensesSubmit} changeForm={changeForm} />}
 

@@ -7,7 +7,7 @@ import InvestGraph from "../components/InvestGraph/InvestGraph"
 import IncomeChart from '../components/IncomeChart/IncomeChart';
 import Chart from "react-google-charts";
 
-const Profile = () => {
+const Profile = ({savedUser}) => {
     const { user } = useAuth0();
     
     useEffect(() => {
