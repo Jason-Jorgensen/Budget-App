@@ -9,7 +9,6 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import AuthenticationButton from '../components/Header/authentication-button';
 
 
-<<<<<<< HEAD
 const saveUserInfo = () => {
 
 }
@@ -20,8 +19,6 @@ const userCheck = (user) => {
         .then(res => console.log(res));
 }
 
-=======
->>>>>>> 299d8b85ed04f9122fa707d0050d5f74510d0535
 
 export default function Login(savedUser) {
     const { user } = useAuth0();
