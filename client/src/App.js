@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Landing from "./pages/Landing";
 import Forms from "./pages/Form";
@@ -10,7 +10,7 @@ import Footer from "./components/Footer/Footer";
 import PrivateRoute from "./components/routes/private-route"
 import ProtectedRoute from "./components/routes/protected-route"
 import Auth0ProviderWithHistory from "./auth0-provider-with-history"
-import userContext from "./utils/userContext"
+import UserContext from "./utils/userContext"
 import "tailwindcss/tailwind.css";
 import { useAuth0 } from "@auth0/auth0-react";
 import API from "./utils/API";
@@ -21,9 +21,9 @@ import API from "./utils/API";
 // (https://reacttraining.com/react-router/web/example/basic)
 function App() {
     const { user } = useAuth0();
-    const [savedUser, setSavedUser] = useState({
+    const [savedUser, setSavedUser] = useState({})
+    const x= ()=>(1+1);
 
-    })
 
 
     const saveUserDB = () => {
@@ -107,7 +107,7 @@ function App() {
     return (
 
         <div>
-
+            <UserContext.Provider value={{savedUser, userCheck, x}}>
             <Header />
             <Switch>
                 <Route exact path={["/", "/login"]}>
@@ -124,6 +124,7 @@ function App() {
                 </ProtectedRoute>
             </Switch>
             <Footer />
+            </UserContext.Provider>
 
         </div>
 

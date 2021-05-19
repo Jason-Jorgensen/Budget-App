@@ -6,9 +6,12 @@ import BudgetChart from "../components/BudgetChart/BudgetChart"
 import InvestGraph from "../components/InvestGraph/InvestGraph"
 import IncomeChart from '../components/IncomeChart/IncomeChart';
 import Chart from "react-google-charts";
+import userContext from "../utils/userContext";
 
-const Profile = ({savedUser}) => {
+const Profile = () => {
     const { user } = useAuth0();
+    const {savedUser}= React.useContext(userContext);
+    console.log(savedUser);
     
     useEffect(() => {
         loadUserData()

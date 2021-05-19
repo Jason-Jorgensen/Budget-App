@@ -11,6 +11,7 @@ import formsContext from "../utils/formsContext";
 import expensesContext from "../utils/expensesContext";
 import Login from "../pages/Login";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import userContext from "../utils/userContext";
 
 import API from "../utils/API";
 
@@ -42,9 +43,12 @@ let testUser = {
 // }
 
 
-function Form({savedUser}) {
+function Form() {
 
     const { user } = useAuth0();
+
+    const {savedUser}= React.useContext(userContext);
+    console.log(savedUser);
 
     const [income, setIncome] = useState({
 

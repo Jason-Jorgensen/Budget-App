@@ -5,23 +5,37 @@ import Zoom from 'react-reveal/Zoom'
 import Fade from 'react-reveal/Fade'
 import './Login.css';
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-// import API from "../utils/API";
+import API from "../utils/API";
 import AuthenticationButton from '../components/Header/authentication-button';
+import userContext from "../utils/userContext";
+
+
+
 
 
 const saveUserInfo = () => {
 
 }
 
-const userCheck = (user) => {
-    console.log(user.email)
-    API.getUserbyEmail(user?.email)
-        .then(res => console.log(res));
-}
+// const userCheck = (user) => {
+//     console.log(user.email)
+//     API.getUserbyEmail(user?.email)
+//         .then(res => console.log(res));
+// }
 
 
-export default function Login(savedUser) {
+export default function Login() {
     const { user } = useAuth0();
+    const {savedUser, userCheck, x}= React.useContext(userContext);
+    // console.log(userCheck(user))
+
+
+    useEffect(() => {
+        userCheck(user)
+    }, [user]);
+    // console.log(savedUser);
+    // console.log(user)
+    
     // const [authUser, setAuthUser] = useState()
     // const [savedUser, setSavedUser] = useState({
     //     email: "none",
@@ -97,9 +111,7 @@ export default function Login(savedUser) {
     // }
 
 
-    // useEffect(() => {
-    //     userCheck(user)
-    // }, []);
+
 
     return (
         <body>
