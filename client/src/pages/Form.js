@@ -165,16 +165,16 @@ function Form() {
 
     useEffect(() => {
         const updateProgress = () => {
-            if (formsSection == "expenses") {
+            if (formsSection === "expenses") {
                 setProgressCompleted(25)
             }
-            else if (formsSection == "debts") {
+            else if (formsSection === "debts") {
                 setProgressCompleted(50)
             }
-            else if (formsSection == "investments") {
+            else if (formsSection === "investments") {
                 setProgressCompleted(75)
             }
-            else if (formsSection == "income") {
+            else if (formsSection === "income") {
                 setProgressCompleted(0)
             }
         }
