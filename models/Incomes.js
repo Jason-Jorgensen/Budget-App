@@ -2,14 +2,12 @@ const mongoose = require ("mongoose");
 const Schema = mongoose.Schema;
 
 const IncomesSchema = new Schema({
-    salary: Number,
-    bonus: Number,
-    personalCont: Number,
-    employerCont: Number,
-    additionalIncome: Number,
-    cash: Number,
-    retirementBalance: Number,
-    investorType: String,
+    "Current Available Cash": Number,
+    "Gross Income": Number,
+    "Other Additional Income": Number,
+    "Tax Filing Status": String,
+    "Yearly Gross Bonuses": Number,
+    "state": String,
 }, {timestamps: true });
 
 const Incomes = mongoose.model("Incomes", IncomesSchema);
