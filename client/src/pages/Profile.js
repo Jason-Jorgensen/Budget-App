@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react'
 import Login from "../pages/Login"
 import API from "../utils/API"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import BudgetChart from "../components/BudgetChart/BudgetChart"
+// import BudgetChart from "../components/BudgetChart/BudgetChart"
 import InvestGraph from "../components/InvestGraph/InvestGraph"
-import IncomeChart from '../components/IncomeChart/IncomeChart';
+// import IncomeChart from '../components/IncomeChart/IncomeChart';
 import Chart from "react-google-charts";
 import userContext from "../utils/userContext";
 

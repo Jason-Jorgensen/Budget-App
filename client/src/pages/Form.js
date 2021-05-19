@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-import Header from "../components/Header/Header";
-import Footer from "../components/Footer/Footer";
+// import Header from "../components/Header/Header";
+// import Footer from "../components/Footer/Footer";
 import Incomes from "../components/Income/Income";
 import Debts from "../components/Debt/Debt";
 import Progressbar from "../components/ProgressBar/ProgressBar";
@@ -9,26 +9,26 @@ import Expenses from "../components/Expenses/Expenses";
 import Investments from "../components/Investments/Investments";
 import formsContext from "../utils/formsContext";
 import expensesContext from "../utils/expensesContext";
-import Login from "../pages/Login";
+// import Login from "../pages/Login";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import userContext from "../utils/userContext";
 
 import API from "../utils/API";
 
-let testItems = {
-    "salary": 200,
-    "bonus": 100,
-    "personalCont": 3,
-    "employerCont": 3,
-    "additionalIncome": 120,
-    "cash": 10000,
-    "retirementBalance": 40000,
-    "investorType": "agresive"
-}
+// let testItems = {
+//     "salary": 200,
+//     "bonus": 100,
+//     "personalCont": 3,
+//     "employerCont": 3,
+//     "additionalIncome": 120,
+//     "cash": 10000,
+//     "retirementBalance": 40000,
+//     "investorType": "agresive"
+// }
 
-let testUser = {
-    email: "test2@test.com"
-}
+// let testUser = {
+//     email: "test2@test.com"
+// }
 // function () {
 //     API.getUserbyEmail(user.email)
 //         .then(res => {
@@ -47,7 +47,7 @@ function Form() {
 
     const { user } = useAuth0();
 
-    const {savedUser}= React.useContext(userContext);
+    const { savedUser } = React.useContext(userContext);
     console.log(savedUser);
 
     const [income, setIncome] = useState({
@@ -104,18 +104,19 @@ function Form() {
         // e.preventDefault();
         console.log(income)
         console.log(savedUser.id)
-        // API.saveIncomes(income)
-        //     .then(res => {
-        //         console.log(res)
+        API.saveIncomes(income)
+            .then(res => {
+                console.log(res)
 
 
 
-        //     });
+            });
 
 
 
 
     }
+
 
     const expensesSubmit = (e) => {
         // Save Income to DB
@@ -164,16 +165,16 @@ function Form() {
 
     useEffect(() => {
         const updateProgress = () => {
-            if (formsSection == "expenses") {
+            if (formsSection === "expenses") {
                 setProgressCompleted(25)
             }
-            else if (formsSection == "debts") {
+            else if (formsSection === "debts") {
                 setProgressCompleted(50)
             }
-            else if (formsSection == "investments") {
+            else if (formsSection === "investments") {
                 setProgressCompleted(75)
             }
-            else if (formsSection == "income") {
+            else if (formsSection === "income") {
                 setProgressCompleted(0)
             }
         }

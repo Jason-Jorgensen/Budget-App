@@ -4,12 +4,12 @@ import Landing from "./pages/Landing";
 import Forms from "./pages/Form";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
-import Loading from "./pages/Loading";
+// import Loading from "./pages/Loading";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
-import PrivateRoute from "./components/routes/private-route"
+// import PrivateRoute from "./components/routes/private-route"
 import ProtectedRoute from "./components/routes/protected-route"
-import Auth0ProviderWithHistory from "./auth0-provider-with-history"
+// import Auth0ProviderWithHistory from "./auth0-provider-with-history"
 import UserContext from "./utils/userContext"
 import "tailwindcss/tailwind.css";
 import { useAuth0 } from "@auth0/auth0-react";

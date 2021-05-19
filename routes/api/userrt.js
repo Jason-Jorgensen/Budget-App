@@ -1,8 +1,8 @@
 const router = require("express").Router();
 const userController = require("../../controllers/userController");
-const incomeController = require("../../controllers/incomeController");
-const expensesController = require("../../controllers/expensesController");
-const debtsController = require("../../controllers/debtsController");
+// const incomeController = require("../../controllers/incomeController");
+// const expensesController = require("../../controllers/expensesController");
+// const debtsController = require("../../controllers/debtsController");
 // const userController = require("../../controllers/userController");
 
 
