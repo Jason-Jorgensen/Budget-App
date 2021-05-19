@@ -15,20 +15,20 @@ import userContext from "../utils/userContext";
 
 import API from "../utils/API";
 
-let testItems = {
-    "salary": 200,
-    "bonus": 100,
-    "personalCont": 3,
-    "employerCont": 3,
-    "additionalIncome": 120,
-    "cash": 10000,
-    "retirementBalance": 40000,
-    "investorType": "agresive"
-}
+// let testItems = {
+//     "salary": 200,
+//     "bonus": 100,
+//     "personalCont": 3,
+//     "employerCont": 3,
+//     "additionalIncome": 120,
+//     "cash": 10000,
+//     "retirementBalance": 40000,
+//     "investorType": "agresive"
+// }
 
-let testUser = {
-    email: "test2@test.com"
-}
+// let testUser = {
+//     email: "test2@test.com"
+// }
 // function () {
 //     API.getUserbyEmail(user.email)
 //         .then(res => {
