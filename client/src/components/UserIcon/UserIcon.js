@@ -18,13 +18,11 @@ export default function UserIcon() {
 
 
             {show && <div className="z-10 user-dropdown absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl">
-                <a href="#" className="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-blue-500 hover:text-white">Update Profile</a>
+                <a href="#" className="transition-colors duration-200 block px-4 py-2 text-gray-900 hover:bg-gray-300">Update Profile</a>
                 <div className="py-2">
                     <hr></hr>
                 </div>
                 <AuthenticationButton />
-                <a href="#" className="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-blue-500 hover:text-white">
-                    Logout</a>
             </div>}
         </div>
     )

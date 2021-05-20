@@ -1,22 +1,32 @@
 import React from 'react';
-import Plot from 'react-plotly.js';
+// import Plot from 'react-plotly.js';
+import Chart from "react-google-charts";
 
 export default class IncomeChart extends React.Component {
   render() {
     return (
-      <Plot
-        data={[
-          {
-            x: [1, 2, 3],
-            y: [2, 6, 3],
-            type: 'scatter',
-            mode: 'lines+markers',
-            marker: {color: 'red'},
+      <Chart
+      chartType="BarChart"
+      loader={<div>Loading Chart</div>}
+      data={[
+          ['', '', '', '', ''],
+          ['After Tax Income', 46000, 0, 0, 0],
+          ['Expenses', 15000, 3000, 5000, 8000],
+      ]}
+      options={{
+          title: 'Income vs. Expenses',
+          chartArea: { width: '70%' },
+          isStacked: true,
+          hAxis: {
+              minValue: 0,
           },
-          {type: 'bar', x: [1, 2, 3], y: [2, 5, 3]},
-        ]}
-        layout={ { title: 'A Fancy Plot'} }
-      />
+          vAxis: {
+              title: 'Yearly $ Amount',
+          },
+      }}
+      // For tests
+      rootProps={{ 'data-testid': '3' }}
+  />
     );
   }
 }

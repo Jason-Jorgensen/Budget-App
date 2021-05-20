@@ -9,19 +9,6 @@ import API from "../utils/API";
 import AuthenticationButton from '../components/Header/authentication-button';
 
 
-<<<<<<< HEAD
-const saveUserInfo = () => {
-
-}
-
-const userCheck = (user) => {
-    console.log(user.email)
-    API.getUserbyEmail(user?.email)
-        .then(res => console.log(res));
-}
-
-=======
->>>>>>> 299d8b85ed04f9122fa707d0050d5f74510d0535
 
 export default function Login() {
     const { user } = useAuth0();
