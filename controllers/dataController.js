@@ -20,7 +20,7 @@ module.exports = {
       .populate([
         {"path": "incomes"},
         {"path": "debts"},
-        {"path": "exenses"},
+        {"path": "expenses"},
         {"path": "investments"}
       ])
       .then(dbModel => res.json(dbModel))

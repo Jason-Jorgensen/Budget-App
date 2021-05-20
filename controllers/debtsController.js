@@ -20,7 +20,8 @@ module.exports = {
     },
     create: function (req, res) {
         db.Debts
-            .create(req.body)
+        .create(req.body.debts)
+        .then(({ _id }) => db.User.findOneAndUpdate({ _id: req.body.userid }, { $push: { debts: _id } }, { new: true }))
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));
     },
