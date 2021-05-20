@@ -98,13 +98,18 @@ function Form() {
     // .then(res => console.log(res)
     // );
 
+    const updateUserDB = () => {
+        console.log(savedUser.id)
+        API.updateUser()
+    }
+
 
     const incomesSubmit = (e) => {
         // Save Income to DB
         // e.preventDefault();
-        console.log(income)
-        console.log(savedUser.id)
-        API.saveIncomes(income)
+        // console.log(income)
+        // console.log(savedUser.id)
+        API.saveIncomes({userid: savedUser.id, incomes: income})
             .then(res => {
                 console.log(res)
 
@@ -122,25 +127,25 @@ function Form() {
         // Save Income to DB
         // e.preventDefault();
         // console.log(expenses)
-        // API.saveExpenses(expenses)
-        // .then(res => console.log(res)
-        // );
+        API.saveExpenses({userid: savedUser.id, expenses: expenses})
+        .then(res => console.log(res)
+        );
     }
 
     const debtsSubmit = (e) => {
         // e.preventDefault();
         // console.log(debt)
-        // API.saveDebts(debt)
-        // .then(res => console.log(res)
-        // );
+        API.saveDebts({userid: savedUser.id, debts: debts})
+        .then(res => console.log(res)
+        );
     }
 
     const investmentsSubmit = (e) => {
         // e.preventDefault();
         // console.log(investment)
-        // API.saveInvestments(investment)
-        // .then(res => console.log(res)
-        // );
+        API.saveInvestments({userid: savedUser.id, investments: investments})
+        .then(res => console.log(res)
+        );
     }
 
     const changeForm = () => {

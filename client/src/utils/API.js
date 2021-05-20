@@ -16,17 +16,17 @@ export default {
     getUserbyEmail: function(email) {
         return axios.get(`api/user/${email}`)
     },
-    saveIncomes: function(incomeData) {
-        return axios.post("api/income/", incomeData);
+    saveIncomes: function(id, incomeData) {
+        return axios.post("api/incomes/", id , incomeData);
     },
-    saveExpenses: function(expensesData) {
-        return axios.post("api/income/", expensesData);
+    saveExpenses: function(id, expensesData) {
+        return axios.post("api/expenses/", id, expensesData);
     },
-    saveDebts: function(debtsData) {
-        return axios.post("/api/debts/", debtsData);
+    saveDebts: function(id, debtsData) {
+        return axios.post("/api/debts/", id, debtsData);
     },
-    saveInvestments: function(investmentData) {
-        return axios.post("/api/credit/", investmentData);
+    saveInvestments: function(id, investmentData) {
+        return axios.post("/api/investments/", id, investmentData);
     },
     saveUser: function(userData) {
         return axios.post("/api/user", userData);
