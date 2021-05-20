@@ -20,7 +20,7 @@ const Profile = () => {
 
 
     function loadUserData() {
-        API.getUserbyEmail(user.email)
+        API.getUserData(savedUser.id)
             .then(res =>
                 console.log(res.data)
             )
