@@ -1,5 +1,6 @@
 const router = require("express").Router();
 const userRoutes = require("./userrt");
+const dataRoutes = require("./datart")
 const incomeRoutes = require("./incomert");
 const expensesRoutes = require("./expensesrt");
 const debtsRoutes = require("./debtsrt");
@@ -8,6 +9,9 @@ const investmentsRoutes = require("./investmentsrt");
 
 // user routes
 router.use("/user", userRoutes);
+
+// data routes
+router.use("/data", dataRoutes);
 
 // income routes
 router.use("/income", incomeRoutes);

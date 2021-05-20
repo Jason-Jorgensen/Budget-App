@@ -1,6 +1,9 @@
 import axios from "axios";
 
 export default {
+    getUserData: function(id) {
+        return axios.get(`/api/data/${id}`)
+    },
     getIncome: function() {
         return axios.get("/api/income");
     },
@@ -10,9 +13,9 @@ export default {
     getInvestment: function () {
         return axios.get("/api/investment");
     },
-    getUser: function(id) {
-        return axios.get("api/user/" + id);
-    },
+    // getUser: function(id) {
+    //     return axios.get("api/user/" + id);
+    // },
     getUserbyEmail: function(email) {
         return axios.get(`api/user/${email}`)
     },
@@ -31,8 +34,8 @@ export default {
     saveUser: function(userData) {
         return axios.post("/api/user", userData);
     },
-    updateUser: function(id) {
-        return axios.post("/api/user" + id);
-    }
+    // updateUser: function(id) {
+    //     return axios.post("/api/user" + id);
+    // }
 
 };

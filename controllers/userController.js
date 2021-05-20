@@ -12,12 +12,6 @@ module.exports = {
       .then(dbModel => res.json(dbModel))
       .catch(err => res.status(422).json(err));
   },
-  // findById: function (req, res) {
-  //   dbUser
-  //     .findById(req.params.id)
-  //     .then(dbModel => res.json(dbModel))
-  //     .catch(err => res.status(422).json(err));
-  // },
   findEmail: function (req, res) {
     console.log("looking up email")
     console.log(req.params)
