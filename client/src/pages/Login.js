@@ -114,7 +114,7 @@ export default function Login() {
 
 
     return (
-        <body>
+        <div>
             <div id="hero" className="">
                 <div className="container-fluid max-w-3xl mt-auto ">
                     <Zoom>
@@ -143,6 +143,6 @@ export default function Login() {
                     </Fade>
                 </div>
             </div>
-        </body>
+        </div>
     )
 }

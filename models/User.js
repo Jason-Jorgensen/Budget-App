@@ -21,6 +21,12 @@ const userSchema = new Schema({
       ref: "Debts"
     }
   ],
+  investments: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: "Investments"
+    }
+  ],
   date: { type: Date, default: Date.now }
 });
 

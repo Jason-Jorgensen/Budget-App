@@ -12,7 +12,7 @@ export default function UserIcon() {
     }, [])
     return (
         <div className="relative float-right mr-3" style={{width: "40px"}}>
-            <button classNsame="user-icon block h-12 w-12 rounded-full overflow-hidden focus:outline-none" onClick={() => setShow(!show)}>
+            <button className="user-icon block h-12 w-12 rounded-full overflow-hidden focus:outline-none" onClick={() => setShow(!show)}>
                 <img src={user?.picture} style={{ borderRadius: "100px", float: "right" }} />
             </button>
 
