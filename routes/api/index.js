@@ -10,7 +10,7 @@ const investmentsRoutes = require("./investmentsrt");
 router.use("/user", userRoutes);
 
 // income routes
-router.use("/income", incomeRoutes);
+router.use("/incomes", incomeRoutes);
 
 // expenses routes
 router.use("/expenses", expensesRoutes);
