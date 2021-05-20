@@ -10,9 +10,9 @@ export default {
     getInvestment: function () {
         return axios.get("/api/investment");
     },
-    // getUser: function(id) {
-    //     return axios.get("api/user/" + id);
-    // },
+    getUser: function(id) {
+        return axios.get("api/user/" + id);
+    },
     getUserbyEmail: function(email) {
         return axios.get(`api/user/${email}`)
     },
@@ -20,13 +20,13 @@ export default {
         return axios.post("api/income/", incomeData);
     },
     saveExpenses: function(expensesData) {
-        return axios.post("api/income/", expensesData);
+        return axios.post("api/expenses/", expensesData);
     },
     saveDebts: function(debtsData) {
         return axios.post("/api/debts/", debtsData);
     },
     saveInvestments: function(investmentData) {
-        return axios.post("/api/credit/", investmentData);
+        return axios.post("/api/investments/", investmentData);
     },
     saveUser: function(userData) {
         return axios.post("/api/user", userData);
