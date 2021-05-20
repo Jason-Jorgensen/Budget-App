@@ -4,7 +4,7 @@ import "./Progressbar.css"
 
 
 const ProgressBar = (progressCompleted) => {
-	console.log(progressCompleted.progressCompleted)
+	// console.log(progressCompleted.progressCompleted)
 
 
 

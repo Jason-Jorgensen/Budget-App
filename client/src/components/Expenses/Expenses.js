@@ -111,7 +111,7 @@ function Expenses({ expensesChange, expensesSubmit, changeForm }) {
                     <label class="my-1 block text-md text-gray-00" for="cus_name">Miscellaneous</label>
                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expensesChange} name="Miscellaneous" id="Miscellaneous" type="number" required="" />
                 </div>
-
+{/* 
                 <div className="mt-2 grid grid-cols-2">
                     <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 0) }} />
                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expensesChange} name={labelNames[0]} id={labelNames[0]} type="number" required="" />
@@ -125,7 +125,7 @@ function Expenses({ expensesChange, expensesSubmit, changeForm }) {
                 <div className="mt-2 grid grid-cols-2">
                     <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 2) }} />
                     <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expensesChange} name={labelNames[2]} id={labelNames[2]} type="number" required="" />
-                </div>
+                </div> */}
 
             </form>
             <div className="leading-loose">
@@ -149,7 +149,7 @@ function Expenses({ expensesChange, expensesSubmit, changeForm }) {
                         <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expensesChange} name="Costco, Amazon, Etc" id="Costco, Amazon, Etc." type="number" required="" />
                     </div>
 
-
+{/* 
                     <div className="mt-2 grid grid-cols-2">
                         <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 3) }} placeholder="working" />
                         <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={expensesChange} name={labelNames[3]} id={labelNames[3]} type="number" required="" />
@@ -158,7 +158,7 @@ function Expenses({ expensesChange, expensesSubmit, changeForm }) {
                     <div className="mt-2 grid grid-cols-2">
                         <EditableLabel initialValue={'Enter Expense...'} save={value => { updateLabel(value, 4) }} />
                         <input class="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"  onChange={expensesChange} name={labelNames[4]} id={labelNames[4]} type="number" required="" />
-                    </div>
+                    </div> */}
                 </form>
                 <div class="flex justify-center mt-2">
                     <button onClick={() => {expensesSubmit();changeForm()}} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">

@@ -48,7 +48,7 @@ function Form() {
     const { user } = useAuth0();
 
     const { savedUser } = React.useContext(userContext);
-    console.log(savedUser);
+    // console.log(savedUser);
 
     const [income, setIncome] = useState({
 
@@ -121,26 +121,26 @@ function Form() {
     const expensesSubmit = (e) => {
         // Save Income to DB
         // e.preventDefault();
-        // console.log(expenses)
-        // API.saveExpenses(expenses)
-        // .then(res => console.log(res)
-        // );
+        console.log(expenses)
+        API.saveExpenses(expenses)
+        .then(res => console.log(res)
+        );
     }
 
     const debtsSubmit = (e) => {
         // e.preventDefault();
-        // console.log(debt)
-        // API.saveDebts(debt)
-        // .then(res => console.log(res)
-        // );
+        console.log(debts)
+        API.saveDebts(debts)
+        .then(res => console.log(res)
+        );
     }
 
     const investmentsSubmit = (e) => {
         // e.preventDefault();
-        // console.log(investment)
-        // API.saveInvestments(investment)
-        // .then(res => console.log(res)
-        // );
+        console.log(investments)
+        API.saveInvestments(investments)
+        .then(res => console.log(res)
+        );
     }
 
     const changeForm = () => {
