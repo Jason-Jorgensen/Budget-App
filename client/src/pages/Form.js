@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import Header from "../components/Header/Header";
 // import Footer from "../components/Footer/Footer";
 import Incomes from "../components/Income/Income";
@@ -98,13 +98,18 @@ function Form() {
     // .then(res => console.log(res)
     // );
 
+    const updateUserDB = () => {
+        console.log(savedUser.id)
+        API.updateUser()
+    }
+
 
     const incomesSubmit = (e) => {
         // Save Income to DB
         // e.preventDefault();
-        console.log(income)
-        console.log(savedUser.id)
-        API.saveIncomes(income)
+        // console.log(income)
+        // console.log(savedUser.id)
+        API.saveIncomes({userid: savedUser.id, incomes: income})
             .then(res => {
                 console.log(res)
 
@@ -121,24 +126,24 @@ function Form() {
     const expensesSubmit = (e) => {
         // Save Income to DB
         // e.preventDefault();
-        console.log(expenses)
-        API.saveExpenses(expenses)
+        // console.log(expenses)
+        API.saveExpenses({userid: savedUser.id, expenses: expenses})
         .then(res => console.log(res)
         );
     }
 
     const debtsSubmit = (e) => {
         // e.preventDefault();
-        console.log(debts)
-        API.saveDebts(debts)
+        // console.log(debt)
+        API.saveDebts({userid: savedUser.id, debts: debts})
         .then(res => console.log(res)
         );
     }
 
     const investmentsSubmit = (e) => {
         // e.preventDefault();
-        console.log(investments)
-        API.saveInvestments(investments)
+        // console.log(investment)
+        API.saveInvestments({userid: savedUser.id, investments: investments})
         .then(res => console.log(res)
         );
     }
