@@ -10,9 +10,9 @@ export default {
     getInvestment: function () {
         return axios.get("/api/investment");
     },
-    // getUser: function(id) {
-    //     return axios.get("api/user/" + id);
-    // },
+    getUser: function(id) {
+        return axios.get("api/user/" + id);
+    },
     getUserbyEmail: function(email) {
         return axios.get(`api/user/${email}`)
     },

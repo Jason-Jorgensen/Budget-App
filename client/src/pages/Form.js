@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 // import Header from "../components/Header/Header";
 // import Footer from "../components/Footer/Footer";
 import Incomes from "../components/Income/Income";
@@ -48,7 +48,7 @@ function Form() {
     const { user } = useAuth0();
 
     const { savedUser } = React.useContext(userContext);
-    console.log(savedUser);
+    // console.log(savedUser);
 
     const [income, setIncome] = useState({
 
