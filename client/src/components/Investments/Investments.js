@@ -1,4 +1,5 @@
 import React, {useEffect} from 'react';
+import {Link} from "react-router-dom";
 import './Investment.css';
 
 
@@ -26,7 +27,8 @@ function Investments({investmentsChange, investmentsSubmit, changeForm, check}) 
     </div>
     <div className="mt-2">
       <label className="block text-sm text-gray-00" for="cus_name">What Kind of Investor are You? </label>
-      <select className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded investor" style={{fontSize:"15px"}}  onChange={investmentsChange} name="Investor Type">
+      <select  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded investor" style={{fontSize:"15px"}}  onChange={investmentsChange} name="Investor Type">
+          <option value="No Selection">Select</option>
           <option value="conservative">Conservative 6% Annual Return</option>
           <option value="moderate">Moderate 8% Annual Return</option>
           <option value="aggressive">Aggressive 10% Annual Return</option>
@@ -36,9 +38,9 @@ function Investments({investmentsChange, investmentsSubmit, changeForm, check}) 
 
         </form>
         <div className="flex justify-center mt-2">
-            <button onClick={() => {investmentsSubmit();changeForm();check()}} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
+            <Link to="/profile" onClick={() => {investmentsSubmit();changeForm();check()}} class="bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-r flex-wrap content-center">
                 Finish
-             </button>
+             </Link>
         </div>
     </div>
 

@@ -1,8 +1,8 @@
 import React from 'react';
 import Auth0ProviderWithHistory from '../../auth0-provider-with-history';
 import AuthenticationButton from './authentication-button';
-import UserIcon from '../UserIcon/UserIcon'
-import {Link} from "react-router-dom"
+import UserIcon from '../UserIcon/UserIcon';
+import {Link} from "react-router-dom";
 
 function Header() {
     return (
@@ -18,7 +18,7 @@ function Header() {
                     Profile
          </Link>
 
-<div className="absolte right-2">
+<div className="absolute right-2">
 
 </div>
                 <div className="absolute right-0">
