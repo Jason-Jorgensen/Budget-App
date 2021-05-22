@@ -23,10 +23,9 @@ const Profile = () => {
     
     useEffect(() => {
         userCheck(user)
-        
+        loadUserData();
     }, [user])
 
-    loadUserData();
     
     function loadUserData() {
         API.getUserData(savedUser.id)
@@ -34,7 +33,7 @@ const Profile = () => {
                 console.log("loadUserData", res.data);
                 let expenses = res.data.expenses[0];
                 let debts = res.data.debts[0];
-                let incomes = res.data.incomes[0];
+                // let incomes = res.data.incomes[0];
                 let investments = res.data.investments[0];
                 setDebts(debts);
                 setExpenses(expenses);
