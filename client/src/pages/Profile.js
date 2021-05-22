@@ -14,7 +14,7 @@ const Profile = () => {
 
     const [debts, setDebts] = useState({});
     const [expenses, setExpenses] = useState({});
-    // const [incomes, setIncomes] = useState({});
+    const [incomes, setIncomes] = useState({});
     const [investments, setInvestments] = useState({});
     const [categorizedExpenses, setCategorizedExpenses] = useState([]);
     const [calcInvestments, setCalcInvestments] = useState();
@@ -33,11 +33,11 @@ const Profile = () => {
                 console.log("loadUserData", res.data);
                 let expenses = res.data.expenses[0];
                 let debts = res.data.debts[0];
-                // let incomes = res.data.incomes[0];
+                let incomes = res.data.incomes[0];
                 let investments = res.data.investments[0];
                 setDebts(debts);
                 setExpenses(expenses);
-                // setIncomes(incomes);
+                setIncomes(incomes);
                 setInvestments(investments);
 
                 let housing = parseInt(expenses.["Rent or Mortgage"]) + parseInt(expenses.["Renters Insurance"]) + parseInt(expenses.["Home Goods"]);
