@@ -19,11 +19,11 @@ function Update() {
         API.getUserData(savedUser.id)
             .then((res) => {
                 console.log(res.data)
-                const allData = (res.data.incomes);
+                const allData = (res.data.incomes[0]);
                 setUserData(allData);
             })
     };
-    console.log()
+    console.log(userData)
     return (
         <div>
             

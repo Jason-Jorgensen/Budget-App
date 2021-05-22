@@ -15,14 +15,18 @@ const Profile = () => {
     
     useEffect(() => {
         userCheck(user)
+        loadUserData();
         
     }, [user])
 
-    loadUserData();
     function loadUserData() {
         API.getUserData(savedUser.id)
-            .then(res =>
+            .then((res) => {
                 console.log(res.data)
+    
+
+
+            }
             )
     };
 
