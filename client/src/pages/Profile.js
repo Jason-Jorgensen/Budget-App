@@ -12,7 +12,7 @@ import userContext from "../utils/userContext";
 const Profile = () => {
     const { user } = useAuth0();
     const {savedUser}= React.useContext(userContext);
-    console.log(savedUser);
+    console.log("savedUser", savedUser);
     
     useEffect(() => {
         loadUserData()
@@ -22,12 +22,12 @@ const Profile = () => {
     function loadUserData() {
         API.getUserData(savedUser.id)
             .then(res =>
-                console.log(res.data)
+                console.log("loadUserData", res.data)
             )
     };
 
     const userInfo = () => {
-        console.log(JSON.stringify(user, null, 2))
+        console.log("userInfo", JSON.stringify(user, null, 2))
     }
 
     userInfo();

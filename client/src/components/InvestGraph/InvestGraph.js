@@ -34,9 +34,9 @@ export default class IncomeGraph extends React.Component {
             value.push(FV);
             yr.push(i);
         }
-        console.log(rate);
-        console.log(int)
-        console.log(value);
+        // console.log(rate);
+        // console.log(int)
+        // console.log(value);
         this.setState({ investmentData: value,
         years: yr });
     }
