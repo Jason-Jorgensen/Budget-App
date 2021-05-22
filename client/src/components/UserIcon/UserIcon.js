@@ -1,5 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import AuthenticationButton from '../Header/authentication-button';
+import {Link} from "react-router-dom";
+
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 
 export default function UserIcon() {
@@ -18,7 +20,7 @@ export default function UserIcon() {
 
 
             {show && <div className="z-10 user-dropdown absolute right-0 w-40 mt-2 py-2 bg-white border rounded shadow-xl">
-                <a href="#" className="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-blue-500 hover:text-white">Update Profile</a>
+                <Link to="/update" className="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-blue-500 hover:text-white">Update Profile</Link>
                 <div className="py-2">
                     <hr></hr>
                 </div>

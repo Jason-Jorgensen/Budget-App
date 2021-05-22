@@ -2,11 +2,12 @@ const mongoose = require ("mongoose");
 const Schema = mongoose.Schema;
 
 const IncomesSchema = new Schema({
-    "Current Available Cash": Number,
+    
     "Gross Income": Number,
-    "Other Additional Income": Number,
-    "Tax Filing Status": String,
     "Yearly Gross Bonuses": Number,
+    "Other Additional Income": Number,
+    "Current Available Cash": Number,
+    "Tax Filing Status": String,
     "state": String,
 }, {timestamps: true });
 

@@ -8,7 +8,7 @@ import Progressbar from "../components/ProgressBar/ProgressBar";
 import Expenses from "../components/Expenses/Expenses";
 import Investments from "../components/Investments/Investments";
 import formsContext from "../utils/formsContext";
-import expensesContext from "../utils/expensesContext";
+// import expensesContext from "../utils/expensesContext";
 // import Login from "../pages/Login";
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import userContext from "../utils/userContext";
@@ -107,7 +107,7 @@ function Form() {
     const incomesSubmit = (e) => {
         // Save Income to DB
         // e.preventDefault();
-        // console.log(income)
+        console.log("working")
         // console.log(savedUser.id)
         API.saveIncomes({userid: savedUser.id, incomes: income})
             .then(res => {
