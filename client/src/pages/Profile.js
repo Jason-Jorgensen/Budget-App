@@ -24,18 +24,6 @@ const Profile = () => {
     useEffect(() => {
         userCheck(user)
         loadUserData();
-<<<<<<< HEAD
-        
-    }, [user])
-
-    function loadUserData() {
-        API.getUserData(savedUser.id)
-            .then((res) => {
-                console.log(res.data)
-    
-
-
-=======
     }, [user])
 
     
