@@ -7,7 +7,7 @@ const LogoutButton = () => {
   const { logout } = useAuth0();
   return (
     <button
-      className="mx-auto btn btn-danger btn-block max-w-sm"
+    className="mx-auto btn btn-primary btn-block max-w-sm"
     
 
       onClick={() =>

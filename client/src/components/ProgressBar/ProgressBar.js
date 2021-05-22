@@ -6,10 +6,6 @@ import "./Progressbar.css"
 const ProgressBar = (progressCompleted) => {
 	// console.log(progressCompleted.progressCompleted)
 
-
-
-
-	
 	const containerStyles = {
 	  height: 20,
 	  width: 'full',
