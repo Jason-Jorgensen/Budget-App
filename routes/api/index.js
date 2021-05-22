@@ -22,7 +22,7 @@ router.use("/expenses", expensesRoutes);
 // debt routes
 router.use("/debts", debtsRoutes)
 
-// debt routes
+// investment routes
 router.use("/investments", investmentsRoutes)
 
 module.exports = router;

@@ -13,9 +13,7 @@ import userContext from "../utils/userContext";
 
 
 
-const saveUserInfo = () => {
 
-}
 
 // const userCheck = (user) => {
 //     console.log(user.email)
@@ -26,7 +24,7 @@ const saveUserInfo = () => {
 
 export default function Login() {
     const { user } = useAuth0();
-    const {savedUser, userCheck, x}= React.useContext(userContext);
+    const {savedUser, userCheck}= React.useContext(userContext);
     // console.log(userCheck(user))
 
 

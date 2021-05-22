@@ -4,6 +4,7 @@ import Landing from "./pages/Landing";
 import Forms from "./pages/Form";
 import Login from "./pages/Login";
 import Profile from "./pages/Profile";
+import Update from "./pages/Update";
 // import Loading from "./pages/Loading";
 import Header from "./components/Header/Header";
 import Footer from "./components/Footer/Footer";
@@ -111,13 +112,16 @@ function App() {
             <Header />
             <Switch>
                 <Route exact path={["/", "/login"]}>
-                    <Login savedUser={savedUser} usercheck={userCheck} />
+                    <Login  />
                 </Route>
                 <Route exact path={"/landing"}>
                     <Landing />
                 </Route>
                 <Route exact path={"/forms"}>
                     <Forms savedUser={savedUser} />
+                </Route>
+                <Route exact path={"/update"}>
+                    <Update savedUser={savedUser} />
                 </Route>
                 <ProtectedRoute path="/profile" component={Profile}>
                     <Profile savedUser={savedUser} />

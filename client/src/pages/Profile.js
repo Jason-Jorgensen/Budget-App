@@ -10,6 +10,7 @@ import userContext from "../utils/userContext";
 
 const Profile = () => {
     const { user } = useAuth0();
+<<<<<<< HEAD
     const { savedUser } = React.useContext(userContext);
 
     const [debts, setDebts] = useState({});
@@ -25,7 +26,17 @@ const Profile = () => {
         loadUserData()
     }, [])
 
+=======
+    const {savedUser, userCheck}= React.useContext(userContext);
+    console.log(savedUser);
+    
+    useEffect(() => {
+        userCheck(user)
+        
+    }, [user])
+>>>>>>> b1ef464644a1f861ea241e82eab09051f8150f10
 
+    loadUserData();
     function loadUserData() {
         API.getUserData(savedUser.id)
             .then(res => {

@@ -13,7 +13,6 @@ router
   .route("/:id")
   .get(dataController.findById)
   
-  
 
 
 
