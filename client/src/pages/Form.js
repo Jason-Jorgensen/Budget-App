@@ -50,25 +50,11 @@ function Form() {
     const { savedUser } = React.useContext(userContext);
     // console.log(savedUser);
 
-    const [income, setIncome] = useState({
-
-    });
-    const [expenses, setExpenses] = useState({
-
-    });
-
-    const [debts, setDebts] = useState({
-
-    });
-
-    const [investments, setInvestments] = useState({
-
-    });
-
-    const [formsSection, setFormsSection] = useState(
-        "incomes"
-    );
-
+    const [income, setIncome] = useState({});
+    const [expenses, setExpenses] = useState({});
+    const [debts, setDebts] = useState({});
+    const [investments, setInvestments] = useState({});
+    const [formsSection, setFormsSection] = useState("incomes");
     const [progressCompleted, setProgressCompleted] = useState(0);
 
     const incomesChange = (event) => {
@@ -108,18 +94,11 @@ function Form() {
         // Save Income to DB
         // e.preventDefault();
         // console.log(income)
-        // console.log(savedUser.id)
+        console.log(savedUser.id)
         API.saveIncomes({userid: savedUser.id, incomes: income})
             .then(res => {
-                console.log(res)
-
-
-
+                console.log("Result of incomesSubmit", res)
             });
-
-
-
-
     }
 
 
@@ -128,7 +107,7 @@ function Form() {
         // e.preventDefault();
         // console.log(expenses)
         API.saveExpenses({userid: savedUser.id, expenses: expenses})
-        .then(res => console.log(res)
+        .then(res => console.log("Result of expensesSubmit", res)
         );
     }
 
@@ -136,7 +115,7 @@ function Form() {
         // e.preventDefault();
         // console.log(debt)
         API.saveDebts({userid: savedUser.id, debts: debts})
-        .then(res => console.log(res)
+        .then(res => console.log("Result of debtsSubmit", res)
         );
     }
 
@@ -144,7 +123,7 @@ function Form() {
         // e.preventDefault();
         // console.log(investment)
         API.saveInvestments({userid: savedUser.id, investments: investments})
-        .then(res => console.log(res)
+        .then(res => console.log("Result of investmentsSubmit", res)
         );
     }
 
@@ -201,28 +180,21 @@ function Form() {
     // }
 
 
-
     return (
         <div>
             <formsContext.Provider value={income}>
 
                 <Progressbar progressCompleted={progressCompleted} />
 
-
                 {formsSection === "incomes" && <Incomes incomesChange={incomesChange} incomesSubmit={incomesSubmit} changeForm={changeForm} />}
 
                 {formsSection === "expenses" && <Expenses expensesChange={expensesChange} expensesSubmit={expensesSubmit} changeForm={changeForm} />}
 
-
                 {formsSection === "debts" && <Debts debtsChange={debtsChange} debtsSubmit={debtsSubmit} changeForm={changeForm} />}
-
 
                 {formsSection === "investments" && <Investments investmentsChange={investmentsChange} investmentsSubmit={investmentsSubmit} changeForm={changeForm} check={check} />}
 
                 {/* <Credits /> */}
-
-
-
 
             </formsContext.Provider>
         </div>

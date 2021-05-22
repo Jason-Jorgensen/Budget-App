@@ -24,7 +24,7 @@ module.exports = {
     create: function (req, res) {
         console.log("create", req.body)
         db.Incomes
-            .create(req.body.income)
+            .create(req.body.incomes)
             .then(({ _id }) => db.User.findOneAndUpdate({ _id: req.body.userid }, { $push: { incomes: _id } }, { new: true }))
             .then(dbModel => res.json(dbModel))
             .catch(err => res.status(422).json(err));

@@ -3,7 +3,6 @@ import React, { useState, useEffect } from "react";
 import EditableLabel from 'react-editable-label';
 
 
-
 function Expenses({ expensesChange, expensesSubmit, changeForm }) {
     const [labelNames, setLabelNames] = useState([])
     const updateLabel = (value, index) => {
