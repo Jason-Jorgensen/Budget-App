@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-
-export default function Update() {
-=======
 import React, { useState, useEffect } from 'react'
 import API from "../utils/API"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
@@ -29,15 +24,11 @@ function Update() {
             })
     };
     console.log()
->>>>>>> b1ef464644a1f861ea241e82eab09051f8150f10
     return (
         <div>
             
         </div>
     )
 }
-<<<<<<< HEAD
-=======
 
 export default Update
->>>>>>> b1ef464644a1f861ea241e82eab09051f8150f10

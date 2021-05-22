@@ -17,55 +17,35 @@ function Debt({debtsChange, debtsSubmit, changeForm}) {
             <h1 className="text-lg mt-3">Car Loan</h1>
             {carArray.map((car) =>
             <div className="mt-2 grid grid-cols-2">
-<<<<<<< HEAD
-                <label  className="my-1 block text-md text-gray-00" htmlFor="cus_name">{car}</label>
-=======
                 <label  className="my-1 block text-md text-gray-00" for="cus_name">{car}</label>
->>>>>>> b1ef464644a1f861ea241e82eab09051f8150f10
                 <input  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={debtsChange} name={car} id={car} type="number" required="" />
             </div>
             )}
             <h1 className="text-lg mt-3">Credit Cards</h1>
             {creditCardArray.map((credit) =>
             <div className="mt-2 grid grid-cols-2">
-<<<<<<< HEAD
-                <label  className="my-1 block text-md text-gray-00" htmlFor="cus_name">{credit}</label>
-=======
                 <label  className="my-1 block text-md text-gray-00" for="cus_name">{credit}</label>
->>>>>>> b1ef464644a1f861ea241e82eab09051f8150f10
                 <input  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={debtsChange} name={credit} id={credit} type="number" required="" />
             </div>
             )}
             <h1 className="text-lg mt-3">Mortgage</h1>
             {mortgageArray.map((mortgage) =>
             <div className="mt-2 grid grid-cols-2">
-<<<<<<< HEAD
-                <label  className="my-1 block text-md text-gray-00" htmlFor="cus_name">{mortgage}</label>
-=======
                 <label  className="my-1 block text-md text-gray-00" for="cus_name">{mortgage}</label>
->>>>>>> b1ef464644a1f861ea241e82eab09051f8150f10
                 <input  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={debtsChange} name={mortgage} id={mortgage} type="number" required="" />
             </div>
             )}
             <h1 className="text-lg mt-3">Student Loans</h1>
             {studentLoanArray.map((studentLoan) =>
             <div className="mt-2 grid grid-cols-2">
-<<<<<<< HEAD
-                <label  className="my-1 block text-md text-gray-00" htmlFor="cus_name">{studentLoan}</label>
-=======
                 <label  className="my-1 block text-md text-gray-00" for="cus_name">{studentLoan}</label>
->>>>>>> b1ef464644a1f861ea241e82eab09051f8150f10
                 <input  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={debtsChange} name={studentLoan} id={studentLoan} type="number" required="" />
             </div>
             )}
             <h1 className="text-lg mt-3">Other Loan</h1>
             {otherLoanArray.map((otherLoan) =>
             <div className="mt-2 grid grid-cols-2">
-<<<<<<< HEAD
-                <label  className="my-1 block text-md text-gray-00" htmlFor="cus_name">{otherLoan}</label>
-=======
                 <label  className="my-1 block text-md text-gray-00" for="cus_name">{otherLoan}</label>
->>>>>>> b1ef464644a1f861ea241e82eab09051f8150f10
                 <input  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={debtsChange} name={otherLoan} id={otherLoan} type="number" required="" />
             </div>
             )}
