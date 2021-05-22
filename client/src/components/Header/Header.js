@@ -23,8 +23,7 @@ function Header() {
 </div>
                 <div className="absolute right-0">
                     <UserIcon />
-                    </div>
-
+                </div>
             </div>
         </nav>
 

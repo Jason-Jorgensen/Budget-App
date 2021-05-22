@@ -25,8 +25,6 @@ export default function UserIcon() {
                     <hr></hr>
                 </div>
                 <AuthenticationButton />
-                <a href="#" className="transition-colors duration-200 block px-4 py-2 text-normal text-gray-900 rounded hover:bg-blue-500 hover:text-white">
-                    Logout</a>
             </div>}
         </div>
     )
