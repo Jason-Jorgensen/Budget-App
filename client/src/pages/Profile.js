@@ -2,20 +2,29 @@ import React, { useState, useEffect } from 'react'
 import Login from "../pages/Login"
 import API from "../utils/API"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-// import BudgetChart from "../components/BudgetChart/BudgetChart"
+import BudgetChart from "../components/BudgetChart/BudgetChart"
 import InvestGraph from "../components/InvestGraph/InvestGraph"
-// import IncomeChart from '../components/IncomeChart/IncomeChart';
-import Chart from "react-google-charts";
+import IncomeChart from '../components/IncomeChart/IncomeChart';
+import ExpensesCard from '../components/ExpensesCard/ExpensesCard';
 import userContext from "../utils/userContext";
 
 const Profile = () => {
     const { user } = useAuth0();
     const {savedUser, userCheck}= React.useContext(userContext);
+
+    const [debts, setDebts] = useState({});
+    const [expenses, setExpenses] = useState({});
+    const [incomes, setIncomes] = useState({});
+    const [investments, setInvestments] = useState({});
+    const [categorizedExpenses, setCategorizedExpenses] = useState([]);
+    const [calcInvestments, setCalcInvestments] = useState();
+
     console.log(savedUser);
     
     useEffect(() => {
         userCheck(user)
         loadUserData();
+<<<<<<< HEAD
         
     }, [user])
 
@@ -26,13 +35,63 @@ const Profile = () => {
     
 
 
+=======
+    }, [user])
+
+    
+    function loadUserData() {
+        API.getUserData(savedUser.id)
+            .then(res => {
+                console.log("loadUserData", res.data);
+                let expenses = res.data.expenses[0];
+                let debts = res.data.debts[0];
+                let incomes = res.data.incomes[0];
+                let investments = res.data.investments[0];
+                setDebts(debts);
+                setExpenses(expenses);
+                setIncomes(incomes);
+                setInvestments(investments);
+
+                let housing = parseInt(expenses.["Rent or Mortgage"]) + parseInt(expenses.["Renters Insurance"]) + parseInt(expenses.["Home Goods"]);
+                let utilities = parseInt(expenses.["Water/Trash/Sewage"]) + parseInt(expenses.["Electricity"]) + parseInt(expenses.["Natural Gas"]) + parseInt(expenses.["Phone Payment"]) + parseInt(expenses.["Internet Bill"]);
+                let car = parseInt(expenses.["Car Insurance"]) + parseInt(expenses.["Car Maintenance"]) + parseInt(expenses.["Gas Expense"]);
+                let healthInsurance = parseInt(expenses.["Health Insurance"]);
+                let food = parseInt(expenses.["Groceries"]) + parseInt(expenses.["Restaurants"]);
+                let selfCare = parseInt(expenses.["Hygiene Products"]) + parseInt(expenses.["Clothing"]) + parseInt(expenses.["Haircuts"]) + parseInt(expenses.["Self Care"]);
+                let social = parseInt(expenses.["Dates"]) + parseInt(expenses.["Gifts"]);
+                let charity = parseInt(expenses.["Charity"]);
+                let misc = parseInt(expenses.["Miscellaneous"]);
+                let memberships = parseInt(expenses.["Gym"]) + parseInt(expenses.["Video Streaming"]) + parseInt(expenses.["Music"]) + parseInt(expenses.["Costco, Amazon, Etc."]);
+
+                setCategorizedExpenses([housing, utilities, car, healthInsurance, food, selfCare, social, charity, misc, memberships]);
+
+                let data = [['x', 'balance']];
+                let FV;
+                let PV = investments.["Current Retirement Balance"];
+                let n = 12;
+                let rate = 6 / 100;
+                let int = rate / n;
+                let year = 30;
+                // incomes not working, set Income at 2000
+                let cont = 2000 * investments
+                .["Employer 401K Contribution %"]/100;
+                let empCont = 2000 * investments
+                .["Your 401K Contribution %"]/100;
+                let monDeposit = cont + empCont;
+
+                for (let i = 0; i <= year; i++) {
+                    FV = (PV * (int + 1) ** (n * i) + monDeposit * ((1 + int) ** (n * i) - 1) / int * (1 + int)).toFixed(2);
+                    data.push([i, FV]);
+                }
+                console.log("investmentData",data)
+                setCalcInvestments(data)
+>>>>>>> 067a25e57890771c0dd0d6016f559b2c8006e365
             }
             )
     };
 
-
     const userInfo = () => {
-        console.log(JSON.stringify(user, null, 2))
+        // console.log("userInfo", JSON.stringify(user, null, 2));
     }
 
     userInfo();
@@ -47,101 +106,38 @@ const Profile = () => {
                         <div className="text-black font-bold text-xl mb-2">Financial Information</div>
                         <p className="text-grey-darker text-base"><strong>Total After-Tax Income: </strong>$46,000</p>
                         <p className="text-grey-darker text-base"><strong>Total Expenses: </strong>$31,000</p>
-                        <p className="text-grey-darker text-base"><strong>Total Debts: </strong>$34,000</p>
+                        <p className="text-grey-darker text-base"><strong>Car Loan: </strong>{debts?.["Car Loan Amount"]}</p>
                         <p className="text-grey-darker text-base"><strong>Retirement </strong>$27,000</p>
                     </div>
                 </div>
 
                 <div className="z-0 col-start-1 col-span-12 sm:col-start-6 sm:col-span-7 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                    <Chart
-                        chartType="BarChart"
-                        loader={<div>Loading Chart</div>}
-                        data={[
-                            ['', '', '', '', ''],
-                            ['After Tax Income', 46000, 0, 0, 0],
-                            ['Expenses', 15000, 3000, 5000, 8000],
-                        ]}
-                        options={{
-                            title: 'Income vs. Expenses',
-                            chartArea: { width: '70%' },
-                            isStacked: true,
-                            hAxis: {
-                                minValue: 0,
-                            },
-                            vAxis: {
-                                title: 'Yearly $ Amount',
-                            },
-                        }}
-                        // For tests
-                        rootProps={{ 'data-testid': '3' }}
+                    <IncomeChart
+
                     />
                 </div>
             </div>
 
             <div className="z-0 grid grid-flow-row grid-cols-12 grid-rows gap-2 mt-3">
-
-            <div className="col-start-1 col-span-12 sm:col-start-1 sm:col-span-7 my-2 h-full w-full rounded">
-                <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white shadow-xl rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                    <div className="z-0 grid grid-flow-row grid-cols-12 grid-rows gap-2 mt-3">
-                        <div className="text-black font-bold text-xl mb-2">Expenses</div>
-                    <div className="mb-5 col-start-1 col-span-6 my-2 w-full rounded">
-                        <p className="text-grey-darker text-base"><strong>Rent or Mortgage: </strong>$1,000</p>
-                        <p className="text-grey-darker text-base"><strong>Renters Insurance: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Health Insurance: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Car Insurance: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Car Maintenance: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Gas Expense: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Groceries: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Home Goods: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Hygene Products: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Restaurants: </strong>$100</p>
-                    </div>
-
-                        <div className="mb-5 col-start-7 col-span-6 my-2 w-full rounded">
-                        <p className="text-grey-darker text-base"><strong>Phone Payment: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Internet Bill: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Water/Trash/Sewage: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Electricity: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Natural Gas: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Clothing: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Haircuts: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Self Care: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Groceries: </strong>$100</p>
-                        <p className="text-grey-darker text-base"><strong>Groceries: </strong>$100</p>
-                        </div>
-
-                    </div>
-                    
-                </div>
-
-            </div>
-            <div className="z-0 col-start-1 col-span-12 sm:col-start-8 sm:col-span-5 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                    <Chart
-                      width={'100%'}
-                      height={'100%'}
-                        chartType="PieChart"
-                        loader={<div>Loading Chart</div>}
-                        data={[
-                            ['Expense', '% of Expenses'],
-                            ['Home', 11],
-                            ['Health', 2],
-                            ['Entertainment', 2],
-                            ['Food', 2],
-                            ['Car', 7],
-                        ]}
-                        options={{
-                            title: 'Expenses',
-                        }}
-                        rootProps={{ 'data-testid': '1' }}
+                <ExpensesCard
+                    expenses={expenses}
+                    categorizedExpenses={categorizedExpenses}
+                />
+                <div className="z-0 col-start-1 col-span-12 sm:col-start-8 sm:col-span-5 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                    <BudgetChart
+                        expenses={expenses}
+                        categorizedExpenses={categorizedExpenses}
                     />
                 </div>
-            
+
             </div>
 
-            
+
             <div className="z-0 grid grid-flow-row grid-cols-12 grid-rows gap-2 mt-3">
                 <div className="z-0 col-start-1 col-span-12 sm:col-start-1 sm:col-span-6 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                    <InvestGraph />
+                    <InvestGraph
+                        calcInvestmentsData={calcInvestments}
+                    />
                 </div>
                 <div className="col-start-1 col-span-12 sm:col-start-7 sm:col-span-6 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                     <InvestGraph />
