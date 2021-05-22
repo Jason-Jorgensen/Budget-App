@@ -69,7 +69,7 @@ const Profile = () => {
 
                 for (let i = 0; i <= year; i++) {
                     FV = (PV * (int + 1) ** (n * i) + monDeposit * ((1 + int) ** (n * i) - 1) / int * (1 + int)).toFixed(2);
-                    data.push([i, FV]);
+                    data.push([i, parseInt(FV)]);
                 }
                 console.log("investmentData",data)
                 setCalcInvestments(data)
