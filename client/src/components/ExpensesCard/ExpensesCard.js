@@ -32,7 +32,6 @@ export default function ExpensesCard(props) {
                     <p className="text-grey-darker text-base"><strong>Haircuts: </strong>{`$${props.expenses.["Haircuts"]}`}</p>
                     <p className="text-grey-darker text-base"><strong>Self Care: </strong>{`$${props.expenses.["Self Care"]}`}</p>
                     <p className="text-grey-darker text-base"><strong>Groceries: </strong>{`$${props.expenses.["Groceries"]}`}</p>
-                    <p className="text-grey-darker text-base"><strong>Groceries: </strong>$100</p>
                 </div>
             </div>
         </div>

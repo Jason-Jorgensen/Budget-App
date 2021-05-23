@@ -7,6 +7,7 @@ import InvestGraph from "../components/InvestGraph/InvestGraph"
 import IncomeChart from '../components/IncomeChart/IncomeChart';
 import ExpensesCard from '../components/ExpensesCard/ExpensesCard';
 import userContext from "../utils/userContext";
+import axios from 'axios';
 
 const Profile = () => {
     const { user } = useAuth0();
@@ -14,7 +15,7 @@ const Profile = () => {
 
     const [debts, setDebts] = useState({});
     const [expenses, setExpenses] = useState({});
-    const [incomes, setIncomes] = useState({});
+    const [incomeData, setIncomes] = useState({});
     const [investments, setInvestments] = useState({});
     const [categorizedExpenses, setCategorizedExpenses] = useState([]);
     const [calcInvestments, setCalcInvestments] = useState();
@@ -30,6 +31,7 @@ const Profile = () => {
     function loadUserData() {
         API.getUserData(savedUser.id)
             .then(res => {
+
                 console.log("loadUserData", res.data);
                 let expenses = res.data.expenses[0];
                 let debts = res.data.debts[0];
@@ -39,6 +41,34 @@ const Profile = () => {
                 setExpenses(expenses);
                 setIncomes(incomes);
                 setInvestments(investments);
+                console.log(debts);
+                console.log(expenses);
+                console.log(incomes);
+                console.log(investments);
+
+                const grossIncome = res.data.incomes[0].['Gross Income'];
+                const options = {
+                    method: 'POST',
+                    url: 'https://stylinandy-taxee.p.rapidapi.com/v2/calculate/2020',
+                    headers: {
+                      'content-type': 'application/x-www-form-urlencoded',
+                      authorization: 'Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJBUElfS0VZX01BTkFHRVIiLCJodHRwOi8vdGF4ZWUuaW8vdXNlcl9pZCI6IjYwYTk0NzI0ODZkZGEyNTAyN2YxMDA3ZCIsImh0dHA6Ly90YXhlZS5pby9zY29wZXMiOlsiYXBpIl0sImlhdCI6MTYyMTcwNjUzMn0.HMrvpquBK-aYPONG3lH8KS5FmNWUzPhgO_SXj4x20Dc',
+                      'x-rapidapi-key': 'f9e719c261msh109bbdbd534b34ap1abf3djsn4e0f924d9c5e',
+                      'x-rapidapi-host': 'stylinandy-taxee.p.rapidapi.com',
+                      'filing_status': 'single',
+                      'pay_rate': '40000',
+                      'state': 'ut',
+                      'exemptions': '3',
+                      'pay_periods': '1'
+                    
+                  }}
+                  
+                  axios.request(options).then(function (response) {
+                      console.log(response.data);
+                  }).catch(function (error) {
+                      console.error(error);
+                  });
+
 
                 let housing = parseInt(expenses.["Rent or Mortgage"]) + parseInt(expenses.["Renters Insurance"]) + parseInt(expenses.["Home Goods"]);
                 let utilities = parseInt(expenses.["Water/Trash/Sewage"]) + parseInt(expenses.["Electricity"]) + parseInt(expenses.["Natural Gas"]) + parseInt(expenses.["Phone Payment"]) + parseInt(expenses.["Internet Bill"]);
