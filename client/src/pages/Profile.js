@@ -73,7 +73,6 @@ const Profile = () => {
                 }
                 console.log("investmentData",data)
                 setCalcInvestments(data)
->>>>>>> 067a25e57890771c0dd0d6016f559b2c8006e365
             }
             )
     };
