@@ -7,8 +7,8 @@ const IncomesSchema = new Schema({
     "Yearly Gross Bonuses":  { type: Number, default: 0 },
     "Other Additional Income":  { type: Number, default: 0 },
     "Current Available Cash":  { type: Number, default: 0 },
-    "Tax Filing Status": String,
-    "state": String,
+    "Tax Filing Status": {type: String, default: "single"},
+    "state": { type: String, default: "UT"}
 }, {timestamps: true });
 
 const Incomes = mongoose.model("Incomes", IncomesSchema);
