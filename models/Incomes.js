@@ -3,10 +3,10 @@ const Schema = mongoose.Schema;
 
 const IncomesSchema = new Schema({
     
-    "Gross Income": Number,
-    "Yearly Gross Bonuses": Number,
-    "Other Additional Income": Number,
-    "Current Available Cash": Number,
+    "Gross Income":  { type: Number, default: 0 },
+    "Yearly Gross Bonuses":  { type: Number, default: 0 },
+    "Other Additional Income":  { type: Number, default: 0 },
+    "Current Available Cash":  { type: Number, default: 0 },
     "Tax Filing Status": String,
     "state": String,
 }, {timestamps: true });

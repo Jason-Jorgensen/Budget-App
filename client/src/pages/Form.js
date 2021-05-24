@@ -10,42 +10,14 @@ import Investments from "../components/Investments/Investments";
 import formsContext from "../utils/formsContext";
 // import expensesContext from "../utils/expensesContext";
 // import Login from "../pages/Login";
-import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
+import { useAuth0} from "@auth0/auth0-react";
 import userContext from "../utils/userContext";
 
 import API from "../utils/API";
 
-// let testItems = {
-//     "salary": 200,
-//     "bonus": 100,
-//     "personalCont": 3,
-//     "employerCont": 3,
-//     "additionalIncome": 120,
-//     "cash": 10000,
-//     "retirementBalance": 40000,
-//     "investorType": "agresive"
-// }
-
-// let testUser = {
-//     email: "test2@test.com"
-// }
-// function () {
-//     API.getUserbyEmail(user.email)
-//         .then(res => {
-//             setSavedUser({
-//                 ...savedUser,
-//                 email: res.data[0].email,
-//                 id: res.data[0]._id
-//             })
-//             console.log(savedUser)
-//         }).catch(err => console.log(err));
-
-// }
-
-
 function Form() {
 
-    const { user } = useAuth0();
+    // const { user } = useAuth0();
 
     const { savedUser } = React.useContext(userContext);
     // console.log(savedUser);
@@ -84,10 +56,10 @@ function Form() {
     // .then(res => console.log(res)
     // );
 
-    const updateUserDB = () => {
-        console.log(savedUser.id)
-        API.updateUser()
-    }
+    // const updateUserDB = () => {
+    //     console.log(savedUser.id)
+    //     API.updateUser()
+    // }
 
 
     const incomesSubmit = (e) => {
