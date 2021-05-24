@@ -5,6 +5,7 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import BudgetChart from "../components/BudgetChart/BudgetChart"
 import InvestGraph from "../components/InvestGraph/InvestGraph"
 import IncomeChart from '../components/IncomeChart/IncomeChart';
+import ExpensesBar from '../components/ExpensesBar/ExpensesBar';
 import ExpensesCard from '../components/ExpensesCard/ExpensesCard';
 import userContext from "../utils/userContext";
 import IncomeCard from "../components/IncomeCard/IncomeCard";
@@ -12,7 +13,7 @@ import axios from 'axios';
 
 const Profile = () => {
     const { user } = useAuth0();
-    const {savedUser, userCheck}= React.useContext(userContext);
+    const { savedUser, userCheck } = React.useContext(userContext);
 
     const [debts, setDebts] = useState({});
     const [expenses, setExpenses] = useState({});
@@ -21,16 +22,16 @@ const Profile = () => {
     const [categorizedExpenses, setCategorizedExpenses] = useState([]);
     const [calcInvestments, setCalcInvestments] = useState();
     const [totalTax, setTotalTax] = useState({});
-   
 
-    console.log(savedUser);
-    
+
+    console.log("LoggedIn User", savedUser);
+
     useEffect(() => {
         userCheck(user)
         loadUserData();
     }, [user])
 
-    
+
     function loadUserData() {
         API.getUserData(savedUser.id)
             .then(res => {
@@ -44,45 +45,44 @@ const Profile = () => {
                 setExpenses(expenses);
                 setIncomes(incomes);
                 setInvestments(investments);
-                console.log(debts);
-                console.log(expenses);
-                console.log(incomes);
-                console.log(investments);
+                console.log("debts", debts);
+                console.log("expenses", expenses);
+                console.log("incomes", incomes);
+                console.log("investments", investments);
 
                 const grossIncome = parseInt(res.data.incomes[0].['Gross Income']);
                 const homeState = res.data.incomes[0].['state'];
                 const taxFiling = res.data.incomes[0].['Tax Filing Status'];
-                
-                
+
+
                 function taxesData(data) {
-                    let fica=data.fica.amount;
-                    let federal=data.federal.amount;
-                    let state=data.state.amount;
-                    let netIncome=grossIncome-fica-federal-state;
+                    let fica = data.fica.amount;
+                    let federal = data.federal.amount;
+                    let state = data.state.amount;
+                    let netIncome = grossIncome - fica - federal - state;
                     calculateInvestment(netIncome);
                 };
-                
-           
-                
+
+
                 const options = {
                     method: 'POST',
                     url: 'https://stylinandy-taxee.p.rapidapi.com/v1/calculate/2020',
                     headers: {
-                      'content-type': 'application/x-www-form-urlencoded',
-                      'x-rapidapi-key': 'f9e719c261msh109bbdbd534b34ap1abf3djsn4e0f924d9c5e',
-                      'x-rapidapi-host': 'stylinandy-taxee.p.rapidapi.com'
+                        'content-type': 'application/x-www-form-urlencoded',
+                        'x-rapidapi-key': 'd6a0d35394msh43dd9c683e1c66ap1d8e5ejsnb9ba7d041aaa',
+                        'x-rapidapi-host': 'stylinandy-taxee.p.rapidapi.com'
                     },
                     data: `filing_status=${taxFiling}&pay_rate=${grossIncome}&state=${homeState}`
-                  };
-                  
-                  axios.request(options).then(function (response) {
-                      setTotalTax(response.data.annual)
-                      taxesData(response.data.annual)
-                      
-                    }).catch(function (error) {
-                        console.error(error);
-                    });
-             
+                };
+
+                axios.request(options).then(function (response) {
+                    setTotalTax(response.data.annual)
+                    taxesData(response.data.annual)
+
+                }).catch(function (error) {
+                    console.error(error);
+                });
+
                 let housing = parseInt(expenses.["Rent or Mortgage"]) + parseInt(expenses.["Renters Insurance"]) + parseInt(expenses.["Home Goods"]);
                 let utilities = parseInt(expenses.["Water/Trash/Sewage"]) + parseInt(expenses.["Electricity"]) + parseInt(expenses.["Natural Gas"]) + parseInt(expenses.["Phone Payment"]) + parseInt(expenses.["Internet Bill"]);
                 let car = parseInt(expenses.["Car Insurance"]) + parseInt(expenses.["Car Maintenance"]) + parseInt(expenses.["Gas Expense"]);
@@ -95,8 +95,8 @@ const Profile = () => {
                 let memberships = parseInt(expenses.["Gym"]) + parseInt(expenses.["Video Streaming"]) + parseInt(expenses.["Music"]) + parseInt(expenses.["Costco, Amazon, Etc."]);
 
                 setCategorizedExpenses([housing, utilities, car, healthInsurance, food, selfCare, social, charity, misc, memberships]);
-                
-                function calculateInvestment (netIncome) {
+
+                function calculateInvestment(netIncome) {
                     let data = [['x', 'balance']];
                     let FV;
                     let PV = investments.["Current Retirement Balance"];
@@ -104,28 +104,27 @@ const Profile = () => {
                     let rate = 6 / 100;
                     let int = rate / n;
                     let year = 30;
-                    // incomes not working, set Income at 2000
-                    let cont = (netIncome/12) * investments
-                    .["Employer 401K Contribution %"]/100;
-                    let empCont = (netIncome/12) * investments
-                    .["Your 401K Contribution %"]/100;
+                    let cont = (netIncome / 12) * investments
+                        .["Employer 401K Contribution %"] / 100;
+                    let empCont = (netIncome / 12) * investments
+                        .["Your 401K Contribution %"] / 100;
                     let monDeposit = cont + empCont;
                     console.log(monDeposit);
-    
+
                     for (let i = 0; i <= year; i++) {
                         FV = (PV * (int + 1) ** (n * i) + monDeposit * ((1 + int) ** (n * i) - 1) / int * (1 + int)).toFixed(2);
                         data.push([i, parseInt(FV)]);
                     }
-                    console.log("investmentData",data)
+                    console.log("investmentData", data)
                     setCalcInvestments(data)
 
                 }
             }
             )
-            
+
     };
 
-    
+
 
     return (
         <div className="container">
@@ -133,15 +132,19 @@ const Profile = () => {
 
             <div className="z-0 grid grid-flow-row grid-cols-12 grid-rows gap-2 mt-3">
                 <div className="ccol-start-1 col-span-12 sm:col-start-1 sm:col-span-5 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                    <IncomeCard 
-                    incomeData={incomeData}
-                    totalTax={totalTax}
-                    investmentsData={investmentsData}
+                    <IncomeCard
+                        incomeData={incomeData}
+                        totalTax={totalTax}
+                        investmentsData={investmentsData}
                     />
                 </div>
 
                 <div className="z-0 col-start-1 col-span-12 sm:col-start-6 sm:col-span-7 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                    <IncomeChart />
+                    <IncomeChart
+                        incomeData={incomeData}
+                        totalTax={totalTax}
+                        investmentsData={investmentsData}
+                    />
                 </div>
             </div>
 
