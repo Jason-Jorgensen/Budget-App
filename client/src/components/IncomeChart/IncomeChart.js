@@ -1,21 +1,26 @@
 import React from 'react';
-// import Plot from 'react-plotly.js';
 import Chart from "react-google-charts";
 
-export default class IncomeChart extends React.Component {
-  render() {
+export default function IncomeChart({ incomeData, totalTax, investmentsData }) {
+    const grossIncome = parseInt(incomeData?.["Gross Income"]);
+    const otherIncome = parseInt(incomeData?.["Other Additional Income"]);
+    const totalGrossIncome = grossIncome + otherIncome;
+    const ficaTax = parseInt(totalTax?.fica?.amount);
+    const stateTax = parseInt(totalTax?.state?.amount);
+    const federalTax = parseInt(totalTax?.federal?.amount);
+    const netIncome = grossIncome + otherIncome - stateTax - federalTax - ficaTax;
+    
     return (
       <Chart
       chartType="BarChart"
       loader={<div>Loading Chart</div>}
       data={[
-          ['', '', '', '', ''],
-          ['After Tax Income', 46000, 0, 0, 0],
-          ['Expenses', 15000, 3000, 5000, 8000],
+          ['', 'After Tax Income', 'Est FICA Tax', 'Est State Tax', 'Est Federal Tax'],
+          ['', netIncome, ficaTax, stateTax, federalTax],
       ]}
       options={{
-          title: 'Income vs. Expenses',
-          chartArea: { width: '70%' },
+          title: `Total Gross Income $${totalGrossIncome}`,
+          chartArea: { width: '100%' },
           isStacked: true,
           hAxis: {
               minValue: 0,
@@ -28,5 +33,4 @@ export default class IncomeChart extends React.Component {
       rootProps={{ 'data-testid': '3' }}
   />
     );
-  }
 }
