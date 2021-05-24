@@ -36,11 +36,8 @@ function Income({incomesChange, incomesSubmit, changeForm}) {
       <label className="block text-sm text-gray-00" for="cus_name">Tax Filing Status</label>
       <select className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded investor" style={{fontSize:"15px"}}  onChange={incomesChange} name="Tax Filing Status">
           <option value="Not Selected">Select</option>
-          <option value="Single">Single</option>
-          <option value="Married filing jointly">Married filing jointly</option>
-          <option value="Married filing separately">Married filing separately</option>
-          <option value="Head of household">Head of household</option>
-          <option value="Qualifying widow(er) with dependent child">Qualifying widow(er) with dependent child</option>
+          <option value="single">Single</option>
+          <option value="married">Married filing jointly</option>
       </select>
     </div>
 
