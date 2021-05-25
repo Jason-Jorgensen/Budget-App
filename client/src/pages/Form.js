@@ -125,7 +125,7 @@ function Form({userCheck}) {
     }, [formsSection])
 
     useEffect(() => {
-        console.log("running 143")
+        //check user login and get ID
         userCheck(user)
     }, [])
 
