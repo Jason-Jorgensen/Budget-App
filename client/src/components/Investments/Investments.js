@@ -28,10 +28,9 @@ function Investments({investmentsChange, investmentsSubmit, changeForm, check}) 
     <div className="mt-2">
       <label className="block text-sm text-gray-00" for="cus_name">What Kind of Investor are You? </label>
       <select  className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded investor" style={{fontSize:"15px"}}  onChange={investmentsChange} name="Investor Type">
-          <option value="No Selection">Select</option>
-          <option value="conservative">Conservative 6% Annual Return</option>
-          <option value="moderate">Moderate 8% Annual Return</option>
-          <option value="aggressive">Aggressive 10% Annual Return</option>
+          <option value="6">Conservative 6% Annual Return</option>
+          <option value="8">Moderate 8% Annual Return</option>
+          <option value="10">Aggressive 10% Annual Return</option>
       </select>
     </div>
 
