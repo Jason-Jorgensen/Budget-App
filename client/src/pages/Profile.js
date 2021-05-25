@@ -50,7 +50,7 @@ const Profile = () => {
                 console.log("incomes", incomes);
                 console.log("investments", investments);
 
-                const grossIncome = parseInt(res.data.incomes[0]?.['Gross Income']);
+                const grossIncome = parseInt(res.data.incomes[0]?.['Gross Income']) + parseInt(res.data.incomes[0]?.["Other Additional Income"]);
                 const homeState = res.data.incomes[0]?.['state'];
                 const taxFiling = res.data.incomes[0]?.['Tax Filing Status'];
 
@@ -92,7 +92,7 @@ const Profile = () => {
                 let social = parseInt(expenses?.["Dates"]) + parseInt(expenses?.["Gifts"]);
                 let charity = parseInt(expenses?.["Charity"]);
                 let misc = parseInt(expenses?.["Miscellaneous"]);
-                let memberships = parseInt(expenses?.["Gym"]) + parseInt(expenses?.["Video Streaming"]) + parseInt(expenses?.["Music"]) + parseInt(expenses?.["Costco, Amazon, Etc."]);
+                let memberships = parseInt(expenses?.["Gym"]) + parseInt(expenses?.["Video Streaming"]) + parseInt(expenses?.["Music"]) + parseInt(expenses?.["Costco, Amazon, Etc"]);
 
                 setCategorizedExpenses([housing, utilities, car, healthInsurance, food, selfCare, social, charity, misc, memberships]);
 
@@ -114,8 +114,8 @@ const Profile = () => {
 
                     for (let i = 0; i <= year; i++) {
                         FV = (PV * (int + 1) ** (n * i) + monDeposit * ((1 + int) ** (n * i) - 1) / int * (1 + int)).toFixed(2);
-                        totalContribution += monDeposit * 12;
                         data.push([i, parseInt(FV), parseInt(totalContribution)]);
+                        totalContribution += monDeposit * 12;
                     }
                     console.log("investmentData", data)
                     setCalcInvestments(data)

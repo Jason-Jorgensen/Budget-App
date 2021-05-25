@@ -18,7 +18,7 @@ export default function IncomeCard({ investments, incomeData, totalTax }) {
             <p className="text-grey-darker text-base"><strong>Employer 401K Contribution %: </strong>{investments?.['Employer 401K Contribution %']}%</p>
             <p className="text-grey-darker text-base"><strong>Your 401K Contribution %: </strong>{investments?.['Your 401K Contribution %']}%</p>
             <p className="text-grey-darker text-base"><strong>Estimated Total Yearly 401K Contribution: </strong>${totalYearlyCont}</p>
-            <p className="text-grey-darker text-base"><strong>Target Annual Return: </strong>${totalYearlyCont}</p>
+            <p className="text-grey-darker text-base"><strong>Target Annual Return: </strong>{investments?.['What Kind of Investor are You?']}%</p>
         </div>
     )
 }
