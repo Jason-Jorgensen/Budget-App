@@ -11,7 +11,7 @@ import ProtectedRoute from "./components/routes/protected-route"
 import UserContext from "./utils/userContext"
 import "tailwindcss/tailwind.css";
 import { useAuth0 } from "@auth0/auth0-react";
-import API from "./utils/API";
+import API from "./utils/api";
 
 
 
