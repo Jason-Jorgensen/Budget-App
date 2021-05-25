@@ -31,7 +31,7 @@
     "deploy": "gh-pages -b main -d build",
     "predeploy": "npm run build"
   },
-  "homepage": "https://testsavvy.herokuapp.com/",
+  "homepage": "https://savvybudget.herokuapp.com/",
   "browserslist": [
     ">0.2%",
     "not dead",
