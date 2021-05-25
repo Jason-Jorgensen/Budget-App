@@ -5,7 +5,6 @@ import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
 import BudgetChart from "../components/BudgetChart/BudgetChart"
 import InvestGraph from "../components/InvestGraph/InvestGraph"
 import IncomeChart from '../components/IncomeChart/IncomeChart';
-import ExpensesBar from '../components/ExpensesBar/ExpensesBar';
 import ExpensesCard from '../components/ExpensesCard/ExpensesCard';
 import userContext from "../utils/userContext";
 import IncomeCard from "../components/IncomeCard/IncomeCard";
