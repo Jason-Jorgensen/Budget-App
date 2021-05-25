@@ -3,10 +3,8 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import Forms from "./Form";
 import Login from "./Login";
 import Profile from "./Profile";
-// import Loading from "./Loading";
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-// import PrivateRoute from "../components/routes/private-route"
 import ProtectedRoute from "../components/routes/protected-route"
 
 function Landing() {
