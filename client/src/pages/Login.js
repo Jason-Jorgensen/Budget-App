@@ -28,8 +28,8 @@ export default function Login() {
                     <Zoom>
                         <div className="row">
                             <div id="hero-box" className="col-md-6 offset-md-3">
-                                <h2 id="title" className="text-center">"Budget App"</h2>
-                                <p className="m-8">Welcome to "Budget App"! A budget calculator designed to help you set financial goals for long term savings and investment.</p>
+                                <img src="./savvylogo1.png" className="mx-auto mb-0"/>
+                                <p className="mt-4 mb-4 text-center">Welcome to "Budget App"! A budget calculator designed to help you set financial goals for long term savings and investment.</p>
                                 <AuthenticationButton />
                             </div>
                         </div>
