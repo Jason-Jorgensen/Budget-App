@@ -5,7 +5,7 @@ const InvestmentsSchema = new Schema({
     "Current Retirement Balance": { type: Number, default: 0 },
     "Your 401K Contribution %": { type: Number, default: 0 },
     "Employer 401K Contribution %": { type: Number, default: 0 },
-    "What Kind of Investor are You?":String
+    "What Kind of Investor are You?": { type: Number, default: 6 },
 });
 
 const Investments = mongoose.model("Investments", InvestmentsSchema);
