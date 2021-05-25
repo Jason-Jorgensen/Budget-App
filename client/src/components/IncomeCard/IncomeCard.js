@@ -1,6 +1,6 @@
-import React, {useEffect} from 'react'
+import React from 'react'
 
-function IncomeCard({ incomeData, totalTax, investmentsData }) {
+export default function IncomeCard({ incomeData, totalTax, investmentsData }) {
     const netIncome = incomeData?.["Gross Income"] +incomeData?.["Other Additional Income"]- totalTax?.state?.amount - totalTax?.federal?.amount - totalTax?.fica?.amount;
 
 
@@ -17,5 +17,3 @@ function IncomeCard({ incomeData, totalTax, investmentsData }) {
         </div>
     )
 }
-
-export default IncomeCard

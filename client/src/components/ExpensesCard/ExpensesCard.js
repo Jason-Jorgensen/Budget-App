@@ -5,10 +5,10 @@ import React, { useState, useEffect } from 'react'
 export default function ExpensesCard(props) {
     // console.log('ExpensesCard props', props)
     return (
-        <div className="col-start-1 col-span-12 sm:col-start-1 sm:col-span-7 my-2 h-full w-full rounded">
+        <div className="col-start-1 col-span-12 sm:col-start-1 sm:col-span-6 my-2 h-full w-full rounded">
         <div className="border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white shadow-xl rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
             <div className="z-0 grid grid-flow-row grid-cols-12 grid-rows gap-2 mt-3">
-                <div className="text-black font-bold text-xl mb-2">Expenses</div>
+                <div className="col-start-1 col-span-12 text-black font-bold text-xl mb-2">Monthly Expenses</div>
                 <div className="mb-5 col-start-1 col-span-6 my-2 w-full rounded">
                     <p className="text-grey-darker text-base"><strong>Rent or Mortgage: </strong>{`$${props?.expenses?.["Rent or Mortgage"]}`}</p>
                     <p className="text-grey-darker text-base"><strong>Renters Insurance: </strong>{`$${props.expenses?.["Renters Insurance"]}`}</p>

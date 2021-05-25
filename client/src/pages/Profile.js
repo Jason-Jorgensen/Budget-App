@@ -1,14 +1,14 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 import Login from "../pages/Login"
 import API from "../utils/API"
 import { useAuth0, withAuthenticationRequired } from "@auth0/auth0-react";
-import BudgetChart from "../components/BudgetChart/BudgetChart"
-import InvestGraph from "../components/InvestGraph/InvestGraph"
+import BudgetChart from "../components/BudgetChart/BudgetChart";
+import InvestGraph from "../components/InvestGraph/InvestGraph";
 import IncomeChart from '../components/IncomeChart/IncomeChart';
-import ExpensesBar from '../components/ExpensesBar/ExpensesBar';
-import ExpensesCard from '../components/ExpensesCard/ExpensesCard';
-import userContext from "../utils/userContext";
 import IncomeCard from "../components/IncomeCard/IncomeCard";
+import ExpensesCard from '../components/ExpensesCard/ExpensesCard';
+import InvestCard from '../components/InvestCard/InvestCard';
+import userContext from "../utils/userContext";
 import axios from 'axios';
 
 const Profile = () => {
@@ -50,9 +50,9 @@ const Profile = () => {
                 console.log("incomes", incomes);
                 console.log("investments", investments);
 
-                const grossIncome = parseInt(res.data.incomes[0].['Gross Income']);
-                const homeState = res.data.incomes[0].['state'];
-                const taxFiling = res.data.incomes[0].['Tax Filing Status'];
+                const grossIncome = parseInt(res.data.incomes[0]?.['Gross Income']);
+                const homeState = res.data.incomes[0]?.['state'];
+                const taxFiling = res.data.incomes[0]?.['Tax Filing Status'];
 
 
                 function taxesData(data) {
@@ -83,41 +83,42 @@ const Profile = () => {
                     console.error(error);
                 });
 
-                let housing = parseInt(expenses.["Rent or Mortgage"]) + parseInt(expenses.["Renters Insurance"]) + parseInt(expenses.["Home Goods"]);
-                let utilities = parseInt(expenses.["Water/Trash/Sewage"]) + parseInt(expenses.["Electricity"]) + parseInt(expenses.["Natural Gas"]) + parseInt(expenses.["Phone Payment"]) + parseInt(expenses.["Internet Bill"]);
-                let car = parseInt(expenses.["Car Insurance"]) + parseInt(expenses.["Car Maintenance"]) + parseInt(expenses.["Gas Expense"]);
-                let healthInsurance = parseInt(expenses.["Health Insurance"]);
-                let food = parseInt(expenses.["Groceries"]) + parseInt(expenses.["Restaurants"]);
-                let selfCare = parseInt(expenses.["Hygiene Products"]) + parseInt(expenses.["Clothing"]) + parseInt(expenses.["Haircuts"]) + parseInt(expenses.["Self Care"]);
-                let social = parseInt(expenses.["Dates"]) + parseInt(expenses.["Gifts"]);
-                let charity = parseInt(expenses.["Charity"]);
-                let misc = parseInt(expenses.["Miscellaneous"]);
-                let memberships = parseInt(expenses.["Gym"]) + parseInt(expenses.["Video Streaming"]) + parseInt(expenses.["Music"]) + parseInt(expenses.["Costco, Amazon, Etc."]);
+                let housing = parseInt(expenses?.["Rent or Mortgage"]) + parseInt(expenses?.["Renters Insurance"]) + parseInt(expenses?.["Home Goods"]);
+                let utilities = parseInt(expenses?.["Water/Trash/Sewage"]) + parseInt(expenses?.["Electricity"]) + parseInt(expenses?.["Natural Gas"]) + parseInt(expenses?.["Phone Payment"]) + parseInt(expenses?.["Internet Bill"]);
+                let car = parseInt(expenses?.["Car Insurance"]) + parseInt(expenses?.["Car Maintenance"]) + parseInt(expenses?.["Gas Expense"]);
+                let healthInsurance = parseInt(expenses?.["Health Insurance"]);
+                let food = parseInt(expenses?.["Groceries"]) + parseInt(expenses?.["Restaurants"]);
+                let selfCare = parseInt(expenses?.["Hygiene Products"]) + parseInt(expenses?.["Clothing"]) + parseInt(expenses?.["Haircuts"]) + parseInt(expenses?.["Self Care"]);
+                let social = parseInt(expenses?.["Dates"]) + parseInt(expenses?.["Gifts"]);
+                let charity = parseInt(expenses?.["Charity"]);
+                let misc = parseInt(expenses?.["Miscellaneous"]);
+                let memberships = parseInt(expenses?.["Gym"]) + parseInt(expenses?.["Video Streaming"]) + parseInt(expenses?.["Music"]) + parseInt(expenses?.["Costco, Amazon, Etc."]);
 
                 setCategorizedExpenses([housing, utilities, car, healthInsurance, food, selfCare, social, charity, misc, memberships]);
 
                 function calculateInvestment(netIncome) {
-                    let data = [['x', 'balance']];
+                    let data = [["x", "Balance", "Contributions"]];
                     let FV;
-                    let PV = investments.["Current Retirement Balance"];
+                    let PV = investments?.["Current Retirement Balance"];
                     let n = 12;
                     let rate = 6 / 100;
                     let int = rate / n;
                     let year = 30;
-                    let cont = (netIncome / 12) * investments
-                        .["Employer 401K Contribution %"] / 100;
+                    console.log(netIncome);
                     let empCont = (netIncome / 12) * investments
-                        .["Your 401K Contribution %"] / 100;
+                        ?.["Employer 401K Contribution %"] / 100;
+                    let cont = (netIncome / 12) * investments
+                        ?.["Your 401K Contribution %"] / 100;
                     let monDeposit = cont + empCont;
-                    console.log(monDeposit);
+                    let totalContribution = 0;
 
                     for (let i = 0; i <= year; i++) {
                         FV = (PV * (int + 1) ** (n * i) + monDeposit * ((1 + int) ** (n * i) - 1) / int * (1 + int)).toFixed(2);
-                        data.push([i, parseInt(FV)]);
+                        totalContribution += monDeposit * 12;
+                        data.push([i, parseInt(FV), parseInt(totalContribution)]);
                     }
                     console.log("investmentData", data)
                     setCalcInvestments(data)
-
                 }
             }
             )
@@ -153,7 +154,7 @@ const Profile = () => {
                     expenses={expenses}
                     categorizedExpenses={categorizedExpenses}
                 />
-                <div className="z-0 col-start-1 col-span-12 sm:col-start-8 sm:col-span-5 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                <div className="z-0 col-start-1 col-span-12 sm:col-start-7 sm:col-span-6 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                     <BudgetChart
                         expenses={expenses}
                         categorizedExpenses={categorizedExpenses}
@@ -163,14 +164,18 @@ const Profile = () => {
             </div>
 
 
-            <div className="z-0 grid grid-flow-row grid-cols-12 grid-rows gap-2 mt-3">
-                <div className="z-0 col-start-1 col-span-12 sm:col-start-1 sm:col-span-6 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+            <div className="z-0 grid grid-flow-row grid-cols-12 grid-rows gap-2 h-96 mt-3">
+                <div className="z-0 col-start-1 col-span-12 sm:col-start-1 sm:col-span-4 my-2 w-full h-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+                    <InvestCard
+                        investments={investmentsData}
+                        incomeData={incomeData}
+                        totalTax={totalTax}
+                    />
+                </div>
+                <div className="col-start-1 col-span-12 sm:col-start-5 sm:col-span-8 my-2 w-full h-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
                     <InvestGraph
                         calcInvestmentsData={calcInvestments}
                     />
-                </div>
-                <div className="col-start-1 col-span-12 sm:col-start-7 sm:col-span-6 my-2 w-full rounded shadow-xl border-r border-b border-l border-grey-light lg:border-l-0 lg:border-t lg:border-grey-light bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-                    <InvestGraph />
                 </div>
             </div>
 

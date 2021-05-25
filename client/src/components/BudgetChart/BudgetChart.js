@@ -1,8 +1,8 @@
 import React from 'react';
 import Chart from "react-google-charts";
 
-export default function BudgetChart(props) {
-  // console.log(props)
+export default function BudgetChart({ categorizedExpenses }) {
+
   return (
     <Chart
     width={'100%'}
@@ -11,16 +11,16 @@ export default function BudgetChart(props) {
     loader={<div>Loading Chart</div>}
     data={[
         ['Expense', '% of Monthly Expenses'],
-        ['Housing', props.categorizedExpenses[0]],
-        ['Utilities', props.categorizedExpenses[1]],
-        ['Car', props.categorizedExpenses[2]],
-        ['Health Insurance', props.categorizedExpenses[3]],
-        ['Food', props.categorizedExpenses[4]],
-        ['Self Care', props.categorizedExpenses[5]],
-        ['Social', props.categorizedExpenses[6]],
-        ['Charity', props.categorizedExpenses[7]],
-        ['Miscellaneous', props.categorizedExpenses[8]],
-        ['Memberships', props.categorizedExpenses[9]],
+        ['Housing', categorizedExpenses[0]],
+        ['Utilities', categorizedExpenses[1]],
+        ['Car', categorizedExpenses[2]],
+        ['Health Insurance', categorizedExpenses[3]],
+        ['Food', categorizedExpenses[4]],
+        ['Self Care', categorizedExpenses[5]],
+        ['Social', categorizedExpenses[6]],
+        ['Charity', categorizedExpenses[7]],
+        ['Miscellaneous', categorizedExpenses[8]],
+        ['Memberships', categorizedExpenses[9]],
     ]}
     options={{
         title: 'Monthly Expenses',
