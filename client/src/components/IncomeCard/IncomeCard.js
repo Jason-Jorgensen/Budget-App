@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 
-function IncomeCard({incomeData,totalTax,investmentsData}) {
+function IncomeCard({ incomeData, totalTax, investmentsData }) {
     const netIncome = incomeData?.["Gross Income"] +incomeData?.["Other Additional Income"]- totalTax?.state?.amount - totalTax?.federal?.amount - totalTax?.fica?.amount;
 
 

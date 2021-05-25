@@ -2,10 +2,10 @@ const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
 
 const InvestmentsSchema = new Schema({
-    "Current Retirement Balance":Number,
-    "Your 401K Contribution %":Number,
-    "Employer 401K Contribution %":Number,
-    "What Kind of Investor are You?":String
+    "Current Retirement Balance": { type: Number, default: 0 },
+    "Your 401K Contribution %": { type: Number, default: 0 },
+    "Employer 401K Contribution %": { type: Number, default: 0 },
+    "What Kind of Investor are You?": { type: Number, default: 6 },
 });
 
 const Investments = mongoose.model("Investments", InvestmentsSchema);

@@ -10,7 +10,7 @@ export default function BudgetChart(props) {
     chartType="PieChart"
     loader={<div>Loading Chart</div>}
     data={[
-        ['Expense', '% of Expenses'],
+        ['Expense', '% of Monthly Expenses'],
         ['Housing', props.categorizedExpenses[0]],
         ['Utilities', props.categorizedExpenses[1]],
         ['Car', props.categorizedExpenses[2]],
@@ -23,7 +23,7 @@ export default function BudgetChart(props) {
         ['Memberships', props.categorizedExpenses[9]],
     ]}
     options={{
-        title: 'Expenses',
+        title: 'Monthly Expenses',
     }}
     rootProps={{ 'data-testid': '1' }}
 />
