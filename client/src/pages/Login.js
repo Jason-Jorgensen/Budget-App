@@ -15,6 +15,7 @@ export default function Login() {
 
 
     useEffect(() => {
+        //check user login and get ID
         userCheck(user)
     }, [user]);
 

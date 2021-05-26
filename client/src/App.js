@@ -110,7 +110,7 @@ function App() {
                     <Landing />
                 </Route>
                 <Route exact path={"/forms"}>
-                    <Forms savedUser={savedUser} />
+                    <Forms savedUser={savedUser} userCheck={userCheck} />
                 </Route>
                 <Route exact path={"/update"}>
                     <Update savedUser={savedUser} />

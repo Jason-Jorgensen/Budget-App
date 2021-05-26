@@ -27,6 +27,7 @@ const Profile = () => {
     console.log("LoggedIn User", savedUser);
 
     useEffect(() => {
+        //check user login and get ID
         userCheck(user)
         loadUserData();
     }, [user])

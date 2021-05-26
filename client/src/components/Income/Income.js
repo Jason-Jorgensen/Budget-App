@@ -15,25 +15,25 @@ function Income({incomesChange, incomesSubmit, changeForm}) {
   <form className="max-w-xl mx-auto p-10 bg-white rounded shadow-xl text-center">
     <p className="text-gray-800 font-medium">Let's Take a Look at your Income!</p>
     <div className="mt-2">
-      <label className="block text-sm text-gray-00" for="cus_name">Gross Income</label>
+      <label className="block text-sm text-gray-00" htmlFor="cus_name">Gross Income</label>
       <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={incomesChange} name="Gross Income" id="salary" type="number" required="" placeholder="Total Gross Income" />
     </div>
     <div className="mt-2">
-      <label className="block text-sm text-gray-00" for="cus_name">Yearly Gross Bonuses</label>
+      <label className="block text-sm text-gray-00" htmlFor="cus_name">Yearly Gross Bonuses</label>
       <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded" onChange={incomesChange} name="Yearly Gross Bonuses" id="bonus" type="number" required="" placeholder="Avg. Yearly Bonus" />
     </div>
     
      
     <div className="mt-2">
-      <label className="block text-sm text-gray-00" for="cus_name">Other Additional Income</label>
+      <label className="block text-sm text-gray-00" htmlFor="cus_name">Other Additional Income</label>
       <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"  onChange={incomesChange} name="Other Additional Income" id="additionalIncome" type="number" required="" placeholder="Add any side hustles?" />
     </div>
     <div className="mt-2">
-      <label className="block text-sm text-gray-00" for="cus_name">Current Available Cash</label>
+      <label className="block text-sm text-gray-00" htmlFor="cus_name">Current Available Cash</label>
       <input className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded"  onChange={incomesChange} name="Current Available Cash" id="cash" type="number" required="" placeholder="Check your accounts"/>
     </div>
     <div className="mt-2">
-      <label className="block text-sm text-gray-00" for="cus_name">Tax Filing Status</label>
+      <label className="block text-sm text-gray-00" htmlFor="cus_name">Tax Filing Status</label>
       <select className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded investor" style={{fontSize:"15px"}}  onChange={incomesChange} name="Tax Filing Status">
           <option value="Not Selected">Select</option>
           <option value="single">Single</option>
@@ -42,10 +42,10 @@ function Income({incomesChange, incomesSubmit, changeForm}) {
     </div>
 
     <div className="mt-2">
-      <label className="block text-sm text-gray-00" for="cus_name">Which State do you live in?</label>
+      <label className="block text-sm text-gray-00" htmlFor="cus_name">Which State do you live in?</label>
       <select className="w-full px-5 py-1 text-gray-700 bg-gray-200 rounded investor " style={{fontSize:"15px"}}  onChange={incomesChange} name="state">
           {states.map((state) =>
-          <option value={state}>{state}</option>
+          <option key={state}>{state}</option>
           )}
       </select>
     </div>

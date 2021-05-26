@@ -1,7 +1,5 @@
 import React, { useState, useEffect } from 'react';
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-// import Header from "../components/Header/Header";
-// import Footer from "../components/Footer/Footer";
 import Incomes from "../components/Income/Income";
 import Debts from "../components/Debt/Debt";
 import Progressbar from "../components/ProgressBar/ProgressBar";
@@ -15,9 +13,9 @@ import userContext from "../utils/userContext";
 
 import API from "../utils/API";
 
-function Form() {
+function Form({userCheck}) {
 
-    // const { user } = useAuth0();
+    const { user } = useAuth0();
 
     const { savedUser } = React.useContext(userContext);
     // console.log(savedUser);
@@ -48,19 +46,6 @@ function Form() {
         const { name, value } = event.target
         setInvestments({ ...investments, [name]: value })
     }
-
-    // Save user to DB
-    // e.preventDefault();
-    // console.log(user)
-    // API.saveUser(user)
-    // .then(res => console.log(res)
-    // );
-
-    // const updateUserDB = () => {
-    //     console.log(savedUser.id)
-    //     API.updateUser()
-    // }
-
 
     const incomesSubmit = (e) => {
         // Save Income to DB
@@ -138,6 +123,11 @@ function Form() {
 
 
     }, [formsSection])
+
+    useEffect(() => {
+        //check user login and get ID
+        userCheck(user)
+    }, [])
 
 
     const check = () => {
