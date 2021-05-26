@@ -27,7 +27,7 @@ export default function Login() {
                         <div className="row">
                             <div id="hero-box" className="col-md-6 offset-md-3">
                                 <img src="./savvylogo1.png" className="mx-auto mb-0" alt="Savvy Logo"/>
-                                <p className="mt-4 mb-4 text-center">Welcome to "Budget App"! A budget calculator designed to help you set financial goals for long term savings and investment.</p>
+                                <p className="mt-4 mb-4 text-center">Welcome to Savvy! A budget calculator designed to help you set financial goals for long term savings and investment.</p>
                                 <AuthenticationButton />
                             </div>
                         </div>
