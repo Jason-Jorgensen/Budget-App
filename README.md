@@ -50,7 +50,8 @@ This application requires the following dependencies:
 Create the following files with the contents:
   ```
   .env
-      - PASSWORD=<your sql password>
+      - DB_USERNAME
+      - DB_PASSWORD      
   .gitignore
       - node_modules/
       - .env
